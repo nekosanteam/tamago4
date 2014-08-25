@@ -1,3 +1,9 @@
+2014-08-25  DOMEKI Eietsu  <domeki.eietsu@gmail.com>
+
+	* egg.el, its.el, menudiag.el: support emacs24.
+	remove make-local-hook, and rename last-command-char
+	to last-command-event.
+
 2004-11-22  Kubo Hiroshi  <hiroshi-news@netird.ad.jp>
 	In fj.sources, <20041122.035305.59473152.hiroshi-news@netird.ad.jp>
 
