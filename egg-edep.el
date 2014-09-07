@@ -78,7 +78,7 @@
 	  (string-match (concat "\\c" (list category) "+") string start))
       (set-category-table cur-ct))))
 
-(unless (egg-string-match-charset 'japanese-jisx0208 "$B!#(B")
+(unless (egg-string-match-charset 'japanese-jisx0208 "。")
   (defun egg-string-match-charset (charset string &optional start)
     (let (min max)
       (if (= (charset-chars charset) 94)

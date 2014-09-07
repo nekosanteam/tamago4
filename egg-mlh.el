@@ -127,7 +127,7 @@ Or else, execute command that space-bar invokes usually."
     (if (= val 0)
         (setq val 1))
     (while (> val 0)
-      (insert "$B!!(B")
+      (insert "　")
       (setq val (1- val))))
   (if (null henkan-begin)
       (setq henkan-begin beg)))
@@ -468,7 +468,7 @@ CHAR.  MNEMONIC             CONVERSION SCHEME
 
 (defun mlh-hiragana-to-kanji ()
   (forward-char -1)
-  (skip-chars-backward "$B$!(B-$B$s!<(B")
+  (skip-chars-backward "ぁ-んー")
   (mlh-backward-henkan)
   (setq beg (point))
   (setq inhibit-henkan nil)

@@ -112,23 +112,23 @@
       (forward-char 1))
   (cond
    ((looking-at "\\([^ ]+\\) \\([^ \n]+\\)\n")
-    ;; $B%9%Z!<%9$,$R$H$D(B
-    ;; $BJQ498e(B($B%9%Z!<%9(B)$BFI$_$,$J(B $B$N0lHLE*$J%Q%?!<%s(B ($B9bB.2=$N$?$a(B)
+    ;; スペースがひとつ
+    ;; 変換後(スペース)読みがな の一般的なパターン (高速化のため)
     (prog1
 	(cons (match-string-no-properties 1) (match-string-no-properties 2))
       (end-of-line)))
    ((not (looking-at ".* .*$"))
-    ;; $B%9%Z!<%9$,$R$H$D$bL5$+$C$?$i%(%i!<(B
+    ;; スペースがひとつも無かったらエラー
     (egg-error "protocol error: %s"
 	       (buffer-substring-no-properties (point) (line-end-position))))
    (t
-    ;; $BJ#?t8D$N%9%Z!<%9$,$"$k$N$G2r@O(B
+    ;; 複数個のスペースがあるので解析
     (let* ((line (buffer-substring-no-properties (point) (line-end-position)))
 	   (elements (egg-anthy-split-string line " "))
 	   (sum (length elements)))
       (if (or (< sum 3) (= (% sum 2) 1))
-	  ;; $B6v?t8D$N%9%Z!<%9$OJQ498e$K%9%Z!<%9$,F~$C$F$$$k$H$-$@$1$J$N$G!"(B
-	  ;; $B:G8e$N%9%Z!<%90J9_$rFI$_$,$J$K$9$k(B <= $B<+?.L5$7(B
+	  ;; 偶数個のスペースは変換後にスペースが入っているときだけなので、
+	  ;; 最後のスペース以降を読みがなにする <= 自信無し
 	  (if (looking-at "\\(.+\\) \\([^ \n]+\\)\n")
 	      (prog1
 		  (cons (match-string-no-properties 1) (match-string-no-properties 2))
@@ -140,15 +140,15 @@
 	  (setcdr (nthcdr (1- div) elements) nil)
 	  (setq conv (mapconcat 'identity elements " "))
 	  (setq yomi (mapconcat 'identity yomilst " "))
-	  ;; $B4q?t8D$N%9%Z!<%9$O(B
-	  ;; alphabet/$B#a#l#p#h#a#b#e#t(B+$B%9%Z!<%9(B, $B%9%Z!<%9$N$_$NJQ49$N7k2L(B
-	  ;; $BFI$_$HJQ498e$G%9%Z!<%9$N?t$,JQ$o$k$3$H$O$J$$(B <= $B<+?.L5$7(B
+	  ;; 奇数個のスペースは
+	  ;; alphabet/ａｌｐｈａｂｅｔ+スペース, スペースのみの変換の結果
+	  ;; 読みと変換後でスペースの数が変わることはない <= 自信無し
 	  (if (string= conv yomi)
 	      (prog1
 		  (cons conv yomi)
 		(end-of-line))
-	    ;; $BJQ498e$NC18l$K%9%Z!<%9$,6v?t8D4^$^$l$?$H$-$O:G8e$N%9%Z!<%90J9_(B
-	    ;; $B$rFI$_$,$J$K$9$k(B <= $B<+?.L5$7(B
+	    ;; 変換後の単語にスペースが偶数個含まれたときは最後のスペース以降
+	    ;; を読みがなにする <= 自信無し
 	    (if (looking-at "\\(.+\\) \\([^ \n]+\\)\n")
 		(prog1
 		    (cons (match-string-no-properties 1) (match-string-no-properties 2))

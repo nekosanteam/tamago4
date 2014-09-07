@@ -1,3 +1,4 @@
+;;; -*- coding: utf-8-emacs -*-
 ;;; its/zhuyin.el --- Zhuyin Input in Egg Input Method Architecture
 
 ;; Copyright (C) 1999,2000 PFU LIMITED
@@ -44,8 +45,8 @@
     t)
   "*Enable Quanjiao alphabet")
 
-(defvar its-zhuyin-cn-open-braket  "$A!8(B" "*[") ; "$A#[(B"
-(defvar its-zhuyin-cn-close-braket "$A!9(B" "*]") ; "$A#](B"
+(defvar its-zhuyin-cn-open-braket  "「" "*[") ; "［"
+(defvar its-zhuyin-cn-close-braket "」" "*]") ; "］"
 
 (defvar its-zhuyin-tw-enable-quanjioao-alphabet
   (if (boundp 'its-enable-fullwidth-alphabet)
@@ -53,8 +54,8 @@
     t)
   "*Enable Quanjiao alphabet")
 
-(defvar its-zhuyin-tw-open-braket  "$(G!V(B" "*[") ; "$(G!b(B "
-(defvar its-zhuyin-tw-close-braket "$(G!W(B" "*]") ; "$(G!c(B"
+(defvar its-zhuyin-tw-open-braket  "「" "*[") ; "﹝ "
+(defvar its-zhuyin-tw-close-braket "」" "*]") ; "﹞"
 
 (eval-when-compile
   (defmacro its-do-zhuyin-table (list)
@@ -66,7 +67,7 @@
     `(let ((s (list ,@shengmu))
 	   (yi (concat (car ,yunmu1) (car ,yunmu2)))
 	   (yo (concat (nth 1 ,yunmu1) (nth 1 ,yunmu2)))
-	   (tone ,(if qingsheng "(0A(B" "(0@(B"))
+	   (tone ,(if qingsheng "ˉ" "�����"))
 	   in out out1 state)
        (while s
 	 (setq in (concat (car (car s)) yi)
@@ -76,25 +77,25 @@
 	       s (cdr s))
 	 (its-defrule (concat in " ") out1)
 	 ,@(if (null qingsheng)
-	       '((its-make-next-state state ?1 (concat out "(0A(B"))
-		 (its-make-next-state state ?2 (concat out "(0B(B"))
-		 (its-make-next-state state ?3 (concat out "(0C(B"))
-		 (its-make-next-state state ?4 (concat out "(0D(B")))))))
+	       '((its-make-next-state state ?1 (concat out "ˉ"))
+		 (its-make-next-state state ?2 (concat out "ˊ"))
+		 (its-make-next-state state ?3 (concat out "ˇ"))
+		 (its-make-next-state state ?4 (concat out "ˋ")))))))
 
   (defmacro its-define-zhuyin-table ()
     '(let ((-  '(""  ""))
-	   (B  '("b" "(0E(B")) (P  '("p" "(0F(B")) (M  '("m" "(0G(B")) (F '("f" "(0H(B"))
-	   (D  '("d" "(0I(B")) (T  '("t" "(0J(B")) (N  '("n" "(0K(B")) (L '("l" "(0L(B"))
-	   (G  '("v" "(0M(B")) (K  '("k" "(0N(B")) (H  '("h" "(0O(B"))
-	   (J  '("g" "(0P(B")) (Q  '("7" "(0Q(B")) (X  '("c" "(0R(B"))
-	   (ZH '("," "(0S(B")) (CH '("." "(0T(B")) (SH '("/" "(0U(B")) (R '("j"  "(0V(B"))
-	   (Z  '(";" "(0W(B")) (C  '(":" "(0X(B")) (S  '("s" "(0Y(B"))
+	   (B  '("b" "ㄅ")) (P  '("p" "ㄆ")) (M  '("m" "ㄇ")) (F '("f" "ㄈ"))
+	   (D  '("d" "ㄉ")) (T  '("t" "ㄊ")) (N  '("n" "ㄋ")) (L '("l" "ㄌ"))
+	   (G  '("v" "ㄍ")) (K  '("k" "ㄎ")) (H  '("h" "ㄏ"))
+	   (J  '("g" "ㄐ")) (Q  '("7" "ㄑ")) (X  '("c" "ㄒ"))
+	   (ZH '("," "ㄓ")) (CH '("." "ㄔ")) (SH '("/" "ㄕ")) (R '("j"  "ㄖ"))
+	   (Z  '(";" "ㄗ")) (C  '(":" "ㄘ")) (S  '("s" "ㄙ"))
 
-	   (A   '("a" "(0Z(B")) (O   '("o" "(0[(B")) (e   '("r" "(0\(B")) (E   '("w" "(0](B"))
-	   (AI  '("i" "(0^(B")) (EI  '("q" "(0_(B")) (AO  '("z" "(0`(B")) 
-	   (AN  '("8" "(0b(B")) (EN  '("9" "(0c(B")) (ANG '("0" "(0d(B")) (ENG '("-" "(0e(B"))
-	   (ER  '("^" "(0f(B")) (OU  '("y" "(0a(B"))
-	   (I   '("e" "(0g(B")) (U   '("x" "(0h(B")) (V   '("u" "(0i(B")))
+	   (A   '("a" "ㄚ")) (O   '("o" "ㄛ")) (e   '("r" "ㄜ")) (E   '("w" "ㄝ"))
+	   (AI  '("i" "ㄞ")) (EI  '("q" "ㄟ")) (AO  '("z" "ㄠ")) 
+	   (AN  '("8" "ㄢ")) (EN  '("9" "ㄣ")) (ANG '("0" "ㄤ")) (ENG '("-" "ㄥ"))
+	   (ER  '("^" "ㄦ")) (OU  '("y" "ㄡ"))
+	   (I   '("e" "ㄧ")) (U   '("x" "ㄨ")) (V   '("u" "ㄩ")))
 
        (its-define-zhuyin (- H) M nil t)
        (its-define-zhuyin (- H) '("@" "@") nil t)
@@ -142,12 +143,12 @@
        (mapcar (lambda (s) (its-defoutput (car s) (nth 1 s)))
 	       (list B P M F D T N L G K H J Q X))
 
-       (its-defrule (concat (car N) "2") (concat (nth 1 N) "(0B(B"))
-       (its-defrule (concat (car N) "3") (concat (nth 1 N) "(0C(B"))
-       (its-defrule (concat (car N) "4") (concat (nth 1 N) "(0D(B")))))
+       (its-defrule (concat (car N) "2") (concat (nth 1 N) "ˊ"))
+       (its-defrule (concat (car N) "3") (concat (nth 1 N) "ˇ"))
+       (its-defrule (concat (car N) "4") (concat (nth 1 N) "ˋ")))))
 
 (define-its-state-machine its-zhuyin-cn-map
-  "zhuyin-cn" "$AW"(BG" Chinese-GB
+  "zhuyin-cn" "注G" Chinese-GB
   "Map for Zhuyin input. (Chinese-GB)"
 
   (defconst its-quanjiao-escape "Z")
@@ -157,42 +158,42 @@
   (its-defrule-select-mode-temporally "Q" quanjiao-downcase-cn)
 
   (its-define-zhuyin-table)
-  (dolist (ascii '(("0" . "$A#0(B")  ("1" . "$A#1(B")  ("2" . "$A#2(B")  ("3" . "$A#3(B")
-		   ("4" . "$A#4(B")  ("5" . "$A#5(B")  ("6" . "$A#6(B")  ("7" . "$A#7(B")
-		   ("8" . "$A#8(B")  ("9" . "$A#9(B") 
-		   (" " . "$A!!(B")  ("!" . "$A#!(B")  ("@" . "$A#@(B")  ("#" . "$A##(B")
-		   ("$" . "$A!g(B")  ("%" . "$A#%(B")  ("^" . "$A#^(B")  ("&" . "$A#&(B")
-		   ("*" . "$A#*(B")  ("(" . "$A#((B")  (")" . "$A#)(B")
-		   ("-" . "$A#-(B")  ("=" . "$A#=(B")  ("`" . "$A#`(B")  ("\\" . "$A#\(B")
-		   ("|" . "$A#|(B")  ("_" . "$A#_(B")  ("+" . "$A#+(B")  ("~" . "$A!+(B")
-		   ("[" . "$A#[(B")  ("]" . "$A#](B")  ("{" . "$A#{(B")  ("}" . "$A#}(B")
-		   (":" . "$A#:(B")  (";" . "$A#;(B")  ("\"" . "$A#"(B") ("'" . "$A#'(B")
-		   ("<" . "$A#<(B")  (">" . "$A#>(B")  ("?" . "$A#?(B")  ("/" . "$A#/(B")
-		   ("," . "$A#,(B")  ("." . "$A#.(B")
-		   ("a" . "$A#a(B")  ("b" . "$A#b(B")  ("c" . "$A#c(B")  ("d" . "$A#d(B")
-		   ("e" . "$A#e(B")  ("f" . "$A#f(B")  ("g" . "$A#g(B")  ("h" . "$A#h(B")
-		   ("i" . "$A#i(B")  ("j" . "$A#j(B")  ("k" . "$A#k(B")  ("l" . "$A#l(B")
-		   ("m" . "$A#m(B")  ("n" . "$A#n(B")  ("o" . "$A#o(B")  ("p" . "$A#p(B")
-		   ("q" . "$A#q(B")  ("r" . "$A#r(B")  ("s" . "$A#s(B")  ("t" . "$A#t(B")
-		   ("u" . "$A#u(B")  ("v" . "$A#v(B")  ("w" . "$A#w(B")  ("x" . "$A#x(B")
-		   ("y" . "$A#y(B")  ("z" . "$A#z(B")
-		   ("A" . "$A#A(B")  ("B" . "$A#B(B")  ("C" . "$A#C(B")  ("D" . "$A#D(B")
-		   ("E" . "$A#E(B")  ("F" . "$A#F(B")  ("G" . "$A#G(B")  ("H" . "$A#H(B")
-		   ("I" . "$A#I(B")  ("J" . "$A#J(B")  ("K" . "$A#K(B")  ("L" . "$A#L(B")
-		   ("M" . "$A#M(B")  ("N" . "$A#N(B")  ("O" . "$A#O(B")  ("P" . "$A#P(B")
-		   ("Q" . "$A#Q(B")  ("R" . "$A#R(B")  ("S" . "$A#S(B")  ("T" . "$A#T(B")
-		   ("U" . "$A#U(B")  ("V" . "$A#V(B")  ("W" . "$A#W(B")  ("X" . "$A#X(B")
-		   ("Y" . "$A#Y(B")  ("Z" . "$A#Z(B")))
+  (dolist (ascii '(("0" . "０")  ("1" . "１")  ("2" . "２")  ("3" . "３")
+		   ("4" . "４")  ("5" . "５")  ("6" . "６")  ("7" . "７")
+		   ("8" . "８")  ("9" . "９") 
+		   (" " . "　")  ("!" . "！")  ("@" . "＠")  ("#" . "＃")
+		   ("$" . "＄")  ("%" . "％")  ("^" . "＾")  ("&" . "＆")
+		   ("*" . "＊")  ("(" . "（")  (")" . "）")
+		   ("-" . "－")  ("=" . "＝")  ("`" . "｀")  ("\\" . "＼")
+		   ("|" . "｜")  ("_" . "＿")  ("+" . "＋")  ("~" . "～")
+		   ("[" . "［")  ("]" . "］")  ("{" . "｛")  ("}" . "｝")
+		   (":" . "：")  (";" . "；")  ("\"" . "＂") ("'" . "＇")
+		   ("<" . "＜")  (">" . "＞")  ("?" . "？")  ("/" . "／")
+		   ("," . "，")  ("." . "．")
+		   ("a" . "ａ")  ("b" . "ｂ")  ("c" . "ｃ")  ("d" . "ｄ")
+		   ("e" . "ｅ")  ("f" . "ｆ")  ("g" . "ｇ")  ("h" . "ｈ")
+		   ("i" . "ｉ")  ("j" . "ｊ")  ("k" . "ｋ")  ("l" . "ｌ")
+		   ("m" . "ｍ")  ("n" . "ｎ")  ("o" . "ｏ")  ("p" . "ｐ")
+		   ("q" . "ｑ")  ("r" . "ｒ")  ("s" . "ｓ")  ("t" . "ｔ")
+		   ("u" . "ｕ")  ("v" . "ｖ")  ("w" . "ｗ")  ("x" . "ｘ")
+		   ("y" . "ｙ")  ("z" . "ｚ")
+		   ("A" . "Ａ")  ("B" . "Ｂ")  ("C" . "Ｃ")  ("D" . "Ｄ")
+		   ("E" . "Ｅ")  ("F" . "Ｆ")  ("G" . "Ｇ")  ("H" . "Ｈ")
+		   ("I" . "Ｉ")  ("J" . "Ｊ")  ("K" . "Ｋ")  ("L" . "Ｌ")
+		   ("M" . "Ｍ")  ("N" . "Ｎ")  ("O" . "Ｏ")  ("P" . "Ｐ")
+		   ("Q" . "Ｑ")  ("R" . "Ｒ")  ("S" . "Ｓ")  ("T" . "Ｔ")
+		   ("U" . "Ｕ")  ("V" . "Ｖ")  ("W" . "Ｗ")  ("X" . "Ｘ")
+		   ("Y" . "Ｙ")  ("Z" . "Ｚ")))
     (let ((in (car ascii)) (out (cdr ascii)))
       (its-defrule (concat its-banjiao-escape in) in)
       (its-defrule (concat its-quanjiao-escape in) out)))
 
-    (its-defrule "<" "$A#,(B")
-    (its-defrule ">" "$A!#(B")
-    (its-defrule "?" "$A!"(B"))
+    (its-defrule "<" "，")
+    (its-defrule ">" "。")
+    (its-defrule "?" "、"))
 
 (define-its-state-machine its-zhuyin-tw-map
-  "zhuyin-tw" "$(GNC(BC" Chinese-CNS
+  "zhuyin-tw" "注C" Chinese-CNS
   "Map for Zhuyin input."
 
   (defconst its-quanjiao-escape "Z")
@@ -202,39 +203,39 @@
   (its-defrule-select-mode-temporally "Q" quanjiao-downcase-tw)
 
   (its-define-zhuyin-table)
-  (dolist (ascii '(("0" . "$(G$!(B")  ("1" . "$(G$"(B")  ("2" . "$(G$#(B")  ("3" . "$(G$$(B")
-		   ("4" . "$(G$%(B")  ("5" . "$(G$&(B")  ("6" . "$(G$'(B")  ("7" . "$(G$((B")
-		   ("8" . "$(G$)(B")  ("9" . "$(G$*(B") 
-		   (" " . "$(G!!(B")  ("!" . "$(G!*(B")  ("@" . "$(G"i(B")  ("#" . "$(G!l(B")
-		   ("$" . "$(G"c(B")  ("%" . "$(G"h(B")  ("^" . "$(G!T(B")  ("&" . "$(G!m(B")
-		   ("*" . "$(G!n(B")  ("(" . "$(G!>(B")  (")" . "$(G!?(B")
-		   ("-" . "$(G"1(B")  ("=" . "$(G"8(B")  ("`" . "$(G!j(B")  ("\\" . "$(G"`(B")
-		   ("|" . "$(G"^(B")  ("_" . "$(G"%(B")  ("+" . "$(G"0(B")  ("~" . "$(G"D(B")
-		   ("[" . "$(G!b(B")  ("]" . "$(G!c(B")  ("{" . "$(G!B(B")  ("}" . "$(G!C(B")
-		   (":" . "$(G!((B")  (";" . "$(G!'(B")  ("\"" . "$(G!i(B") ("'" . "$(G!k(B")
-		   ("<" . "$(G"6(B")  (">" . "$(G"7(B")  ("?" . "$(G!)(B")  ("/" . "$(G"_(B")
-		   ("," . "$(G!"(B")  ("." . "$(G!%(B")
-		   ("a" . "$(G$[(B")  ("b" . "$(G$\(B")  ("c" . "$(G$](B")  ("d" . "$(G$^(B")
-		   ("e" . "$(G$_(B")  ("f" . "$(G$`(B")  ("g" . "$(G$a(B")  ("h" . "$(G$b(B")
-		   ("i" . "$(G$c(B")  ("j" . "$(G$d(B")  ("k" . "$(G$e(B")  ("l" . "$(G$f(B")
-		   ("m" . "$(G$g(B")  ("n" . "$(G$h(B")  ("o" . "$(G$i(B")  ("p" . "$(G$j(B")
-		   ("q" . "$(G$k(B")  ("r" . "$(G$l(B")  ("s" . "$(G$m(B")  ("t" . "$(G$n(B")
-		   ("u" . "$(G$o(B")  ("v" . "$(G$p(B")  ("w" . "$(G$q(B")  ("x" . "$(G$r(B")
-		   ("y" . "$(G$s(B")  ("z" . "$(G$t(B")
-		   ("A" . "$(G$A(B")  ("B" . "$(G$B(B")  ("C" . "$(G$C(B")  ("D" . "$(G$D(B")
-		   ("E" . "$(G$E(B")  ("F" . "$(G$F(B")  ("G" . "$(G$G(B")  ("H" . "$(G$H(B")
-		   ("I" . "$(G$I(B")  ("J" . "$(G$J(B")  ("K" . "$(G$K(B")  ("L" . "$(G$L(B")
-		   ("M" . "$(G$M(B")  ("N" . "$(G$N(B")  ("O" . "$(G$O(B")  ("P" . "$(G$P(B")
-		   ("Q" . "$(G$Q(B")  ("R" . "$(G$R(B")  ("S" . "$(G$S(B")  ("T" . "$(G$T(B")
-		   ("U" . "$(G$U(B")  ("V" . "$(G$V(B")  ("W" . "$(G$W(B")  ("X" . "$(G$X(B")
-		   ("Y" . "$(G$Y(B")  ("Z" . "$(G$Z(B")))
+  (dolist (ascii '(("0" . "０")  ("1" . "１")  ("2" . "２")  ("3" . "３")
+		   ("4" . "４")  ("5" . "５")  ("6" . "６")  ("7" . "７")
+		   ("8" . "８")  ("9" . "９") 
+		   (" " . "　")  ("!" . "！")  ("@" . "＠")  ("#" . "＃")
+		   ("$" . "＄")  ("%" . "％")  ("^" . "︿")  ("&" . "＆")
+		   ("*" . "＊")  ("(" . "（")  (")" . "）")
+		   ("-" . "－")  ("=" . "＝")  ("`" . "′")  ("\\" . "＼")
+		   ("|" . "｜")  ("_" . "＿")  ("+" . "＋")  ("~" . "∼")
+		   ("[" . "﹝")  ("]" . "﹞")  ("{" . "｛")  ("}" . "｝")
+		   (":" . "：")  (";" . "；")  ("\"" . "〞") ("'" . "‵")
+		   ("<" . "＜")  (">" . "＞")  ("?" . "？")  ("/" . "／")
+		   ("," . "，")  ("." . "．")
+		   ("a" . "ａ")  ("b" . "ｂ")  ("c" . "ｃ")  ("d" . "ｄ")
+		   ("e" . "ｅ")  ("f" . "ｆ")  ("g" . "ｇ")  ("h" . "ｈ")
+		   ("i" . "ｉ")  ("j" . "ｊ")  ("k" . "ｋ")  ("l" . "ｌ")
+		   ("m" . "ｍ")  ("n" . "ｎ")  ("o" . "ｏ")  ("p" . "ｐ")
+		   ("q" . "ｑ")  ("r" . "ｒ")  ("s" . "ｓ")  ("t" . "ｔ")
+		   ("u" . "ｕ")  ("v" . "ｖ")  ("w" . "ｗ")  ("x" . "ｘ")
+		   ("y" . "ｙ")  ("z" . "ｚ")
+		   ("A" . "Ａ")  ("B" . "Ｂ")  ("C" . "Ｃ")  ("D" . "Ｄ")
+		   ("E" . "Ｅ")  ("F" . "Ｆ")  ("G" . "Ｇ")  ("H" . "Ｈ")
+		   ("I" . "Ｉ")  ("J" . "Ｊ")  ("K" . "Ｋ")  ("L" . "Ｌ")
+		   ("M" . "Ｍ")  ("N" . "Ｎ")  ("O" . "Ｏ")  ("P" . "Ｐ")
+		   ("Q" . "Ｑ")  ("R" . "Ｒ")  ("S" . "Ｓ")  ("T" . "Ｔ")
+		   ("U" . "Ｕ")  ("V" . "Ｖ")  ("W" . "Ｗ")  ("X" . "Ｘ")
+		   ("Y" . "Ｙ")  ("Z" . "Ｚ")))
     (let ((in (car ascii)) (out (cdr ascii)))
       (its-defrule (concat its-banjiao-escape in) in)
       (its-defrule (concat its-quanjiao-escape in) out)))
 
-    (its-defrule "<" "$(G!"(B")
-    (its-defrule ">" "$(G!$(B")
-    (its-defrule "?" "$(G!#(B"))
+    (its-defrule "<" "，")
+    (its-defrule ">" "。")
+    (its-defrule "?" "、"))
 
 (define-its-state-machine-append its-zhuyin-cn-map
   (its-defrule "[" its-zhuyin-cn-open-braket)
@@ -242,16 +243,16 @@
 
 (if its-zhuyin-cn-enable-quanjioao-alphabet
       (progn
-	(its-defrule "#"  "$A##(B")  (its-defrule "$"  "$A!g(B")
-	(its-defrule "%"  "$A#%(B")
-	(its-defrule "&"  "$A#&(B")  (its-defrule "*"  "$A#*(B")
-	(its-defrule "("  "$A#((B")  (its-defrule ")"  "$A#)(B")
-	(its-defrule "~"  "$A!+(B")
-	(its-defrule "="  "$A#=(B")  (its-defrule "`"  "$A#`(B")
-	(its-defrule "\\" "$A#\(B")  (its-defrule "|"  "$A#|(B")
-	(its-defrule "_"  "$A#_(B")  (its-defrule "+"  "$A#+(B")
-	(its-defrule "{"  "$A#{(B")  (its-defrule "}"  "$A#}(B")
-	(its-defrule "\"" "$A#"(B")  (its-defrule "'"  "$A#'(B"))
+	(its-defrule "#"  "＃")  (its-defrule "$"  "＄")
+	(its-defrule "%"  "％")
+	(its-defrule "&"  "＆")  (its-defrule "*"  "＊")
+	(its-defrule "("  "（")  (its-defrule ")"  "）")
+	(its-defrule "~"  "～")
+	(its-defrule "="  "＝")  (its-defrule "`"  "｀")
+	(its-defrule "\\" "＼")  (its-defrule "|"  "｜")
+	(its-defrule "_"  "＿")  (its-defrule "+"  "＋")
+	(its-defrule "{"  "｛")  (its-defrule "}"  "｝")
+	(its-defrule "\"" "＂")  (its-defrule "'"  "＇"))
     (progn
       (its-defrule "#"  "#")  (its-defrule "$"  "$")
       (its-defrule "%"  "%")
@@ -270,16 +271,16 @@
 
   (if its-zhuyin-tw-enable-quanjioao-alphabet
       (progn
-	(its-defrule "#"  "$(G!l(B")  (its-defrule "$"  "$(G"c(B")
-	(its-defrule "%"  "$(G"h(B")
-	(its-defrule "&"  "$(G!m(B")  (its-defrule "*"  "$(G!n(B")
-	(its-defrule "("  "$(G!>(B")  (its-defrule ")"  "$(G!?(B")
-	(its-defrule "~"  "$(G"D(B")
-	(its-defrule "="  "$(G"8(B")  (its-defrule "`"  "$(G!j(B")
-	(its-defrule "\\" "$(G"`(B")  (its-defrule "|"  "$(G"^(B")
-	(its-defrule "_"  "$(G"%(B")  (its-defrule "+"  "$(G"0(B")
-	(its-defrule "{"  "$(G!B(B")  (its-defrule "}"  "$(G!C(B")
-	(its-defrule "\"" "$(G!i(B")  (its-defrule "'"  "$(G!k(B"))
+	(its-defrule "#"  "＃")  (its-defrule "$"  "＄")
+	(its-defrule "%"  "％")
+	(its-defrule "&"  "＆")  (its-defrule "*"  "＊")
+	(its-defrule "("  "（")  (its-defrule ")"  "）")
+	(its-defrule "~"  "∼")
+	(its-defrule "="  "＝")  (its-defrule "`"  "′")
+	(its-defrule "\\" "＼")  (its-defrule "|"  "｜")
+	(its-defrule "_"  "＿")  (its-defrule "+"  "＋")
+	(its-defrule "{"  "｛")  (its-defrule "}"  "｝")
+	(its-defrule "\"" "〞")  (its-defrule "'"  "‵"))
     (progn
       (its-defrule "#"  "#")  (its-defrule "$"  "$")
       (its-defrule "%"  "%")

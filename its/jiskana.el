@@ -46,28 +46,28 @@
     t)
   "*Enable Zenkaku alphabet")
 
-(defcustom its-jiskana-period "$B!#(B" 
-  "* >$B$rF~NO$7$?$H$-$N6gE@$NJ8;z(B: \"$B!#(B\"  \". \" \"$B!%(B\""
+(defcustom its-jiskana-period "。" 
+  "* >を入力したときの句点の文字: \"。\"  \". \" \"．\""
   :group 'jiskana :type 'string)
 
-(defcustom its-jiskana-comma  "$B!"(B"
- "* <$B$rF~NO$7$?$H$-$NFIE@$NJ8;z(B: \"$B!"(B\" \", \" \"$B!$(B\""
+(defcustom its-jiskana-comma  "、"
+ "* <を入力したときの読点の文字: \"、\" \", \" \"，\""
   :group 'jiskana :type 'string)
 
-(defcustom its-jiskana-open-bracket  "$B!V(B"
- "* { $B$rF~NO$7$?$H$-$N$+$.3g8L3+$1$NJ8;z(B: \"$B!V(B\" \"$B!P(B\""
+(defcustom its-jiskana-open-bracket  "「"
+ "* { を入力したときのかぎ括弧開けの文字: \"「\" \"｛\""
   :group 'jiskana :type 'string)
 
-(defcustom its-jiskana-close-bracket "$B!W(B"
- "* } $B$rF~NO$7$?$H$-$N$+$.3g8LJD$8$NJ8;z(B: \"$B!W(B\" \"$B!Q(B\""
+(defcustom its-jiskana-close-bracket "」"
+ "* } を入力したときのかぎ括弧閉じの文字: \"」\" \"｝\""
   :group 'jiskana :type 'string)
 
-(defcustom its-jiskana-horizontal  "$B!<(B"
-  "* - $B$rF~NO$7$?$H$-$ND92;5-9f$NJ8;z(B: \"$B!<(B\" \"$B!](B\""
+(defcustom its-jiskana-horizontal  "ー"
+  "* - を入力したときの長音記号の文字: \"ー\" \"−\""
   :group 'jiskana :type 'string)
 
 (define-its-state-machine its-jiskana-map
-  "kana" "$B$o(B" Japanese
+  "kana" "わ" Japanese
   "Map for JIS arrangement keyboard to hiragana translation. (Japanese)"
 
   (defconst its-zenkaku-escape "A")  ;; Escape character to Zenkaku inputs
@@ -77,232 +77,232 @@
   (its-defrule-select-mode-temporally "Q" zenkaku-downcase)
 
 
-  ;;; $B@62;(B
+  ;;; 清音
 
-  ;; $B$"9T(B
-  (its-defrule   "3"    "$B$"(B")
-  (its-defrule   "e"    "$B$$(B")
-  (its-defrule   "4"    "$B$&(B")
-  (its-defrule   "5"    "$B$((B")
-  (its-defrule   "6"    "$B$*(B")
+  ;; あ行
+  (its-defrule   "3"    "あ")
+  (its-defrule   "e"    "い")
+  (its-defrule   "4"    "う")
+  (its-defrule   "5"    "え")
+  (its-defrule   "6"    "お")
 
-  ;; $B$+9T(B
-  (its-defrule*   "t"    "$B$+(B"  "$B$+(B")
-  (its-defrule*   "g"    "$B$-(B"  "$B$-(B")
-  (its-defrule*   "h"    "$B$/(B"  "$B$/(B")
-  (its-defrule*   ":"    "$B$1(B"  "$B$1(B")
-  (its-defrule*   "b"    "$B$3(B"  "$B$3(B")
+  ;; か行
+  (its-defrule*   "t"    "か"  "か")
+  (its-defrule*   "g"    "き"  "き")
+  (its-defrule*   "h"    "く"  "く")
+  (its-defrule*   ":"    "け"  "け")
+  (its-defrule*   "b"    "こ"  "こ")
 
-  ;; $B$59T(B
-  (its-defrule*   "x"    "$B$5(B"  "$B$5(B")
-  (its-defrule*   "d"    "$B$7(B"  "$B$7(B")
-  (its-defrule*   "r"    "$B$9(B"  "$B$9(B")
-  (its-defrule*   "p"    "$B$;(B"  "$B$;(B")
-  (its-defrule*   "c"    "$B$=(B"  "$B$=(B")
+  ;; さ行
+  (its-defrule*   "x"    "さ"  "さ")
+  (its-defrule*   "d"    "し"  "し")
+  (its-defrule*   "r"    "す"  "す")
+  (its-defrule*   "p"    "せ"  "せ")
+  (its-defrule*   "c"    "そ"  "そ")
 
-  ;; $B$?9T(B
-  (its-defrule*   "q"    "$B$?(B"  "$B$?(B")
-  (its-defrule*   "a"    "$B$A(B"  "$B$A(B")
-  (its-defrule*   "z"    "$B$D(B"  "$B$D(B")
-  (its-defrule*   "w"    "$B$F(B"  "$B$F(B")
-  (its-defrule*   "s"    "$B$H(B"  "$B$H(B")
+  ;; た行
+  (its-defrule*   "q"    "た"  "た")
+  (its-defrule*   "a"    "ち"  "ち")
+  (its-defrule*   "z"    "つ"  "つ")
+  (its-defrule*   "w"    "て"  "て")
+  (its-defrule*   "s"    "と"  "と")
 
-  ;; $B$J9T(B
-  (its-defrule   "u"   "$B$J(B")
-  (its-defrule   "i"   "$B$K(B")
-  (its-defrule   "1"   "$B$L(B")
-  (its-defrule   ","   "$B$M(B")
-  (its-defrule   "k"   "$B$N(B")
+  ;; な行
+  (its-defrule   "u"   "な")
+  (its-defrule   "i"   "に")
+  (its-defrule   "1"   "ぬ")
+  (its-defrule   ","   "ね")
+  (its-defrule   "k"   "の")
 
-  ;; $B$O9T(B
-  (its-defrule*   "f"   "$B$O(B"  "$B$O(B")
-  (its-defrule*   "v"   "$B$R(B"  "$B$R(B")
-  (its-defrule*   "2"   "$B$U(B"  "$B$U(B")
-  (its-defrule*   "^"   "$B$X(B"  "$B$X(B")
-  (its-defrule*   "-"   "$B$[(B"  "$B$[(B")
+  ;; は行
+  (its-defrule*   "f"   "は"  "は")
+  (its-defrule*   "v"   "ひ"  "ひ")
+  (its-defrule*   "2"   "ふ"  "ふ")
+  (its-defrule*   "^"   "へ"  "へ")
+  (its-defrule*   "-"   "ほ"  "ほ")
 
-  ;; $B$^9T(B
-  (its-defrule   "j"   "$B$^(B")
-  (its-defrule   "n"   "$B$_(B")
-  (its-defrule   "]"   "$B$`(B")
-  (its-defrule   "/"   "$B$a(B")
-  (its-defrule   "m"   "$B$b(B")
+  ;; ま行
+  (its-defrule   "j"   "ま")
+  (its-defrule   "n"   "み")
+  (its-defrule   "]"   "む")
+  (its-defrule   "/"   "め")
+  (its-defrule   "m"   "も")
 
-  ;; $B$d9T(B
-  (its-defrule   "7"   "$B$d(B")
-  (its-defrule   "8"   "$B$f(B")
-  (its-defrule   "9"   "$B$h(B")
+  ;; や行
+  (its-defrule   "7"   "や")
+  (its-defrule   "8"   "ゆ")
+  (its-defrule   "9"   "よ")
 
-  ;; $B$i9T(B
-  (its-defrule   "o"   "$B$i(B")
-  (its-defrule   "l"   "$B$j(B")
-  (its-defrule   "."   "$B$k(B")
-  (its-defrule   ";"   "$B$l(B")
-  (its-defrule   "\\"   "$B$m(B")
+  ;; ら行
+  (its-defrule   "o"   "ら")
+  (its-defrule   "l"   "り")
+  (its-defrule   "."   "る")
+  (its-defrule   ";"   "れ")
+  (its-defrule   "\\"   "ろ")
 
-  ;; $B$o9T(B
-  (its-defrule   "0"   "$B$o(B")
-  (its-defrule   "F"   "$B$p(B")
-  (its-defrule   "J"   "$B$q(B")
-  (its-defrule   "~"   "$B$r(B")
-  (its-defrule   "y"   "$B$s(B")
+  ;; わ行
+  (its-defrule   "0"   "わ")
+  (its-defrule   "F"   "ゐ")
+  (its-defrule   "J"   "ゑ")
+  (its-defrule   "~"   "を")
+  (its-defrule   "y"   "ん")
 
-  ;;; $BBy2;(B
-  ;; $B$,9T(B
-  (its-defrule   "t@"    "$B$,(B")
-  (its-defrule   "g@"    "$B$.(B")
-  (its-defrule   "h@"    "$B$0(B")
-  (its-defrule   ":@"    "$B$2(B")
-  (its-defrule   "b@"    "$B$4(B")
+  ;;; 濁音
+  ;; が行
+  (its-defrule   "t@"    "が")
+  (its-defrule   "g@"    "ぎ")
+  (its-defrule   "h@"    "ぐ")
+  (its-defrule   ":@"    "げ")
+  (its-defrule   "b@"    "ご")
 
-  ;; $B$69T(B
-  (its-defrule   "x@"    "$B$6(B")
-  (its-defrule   "d@"    "$B$8(B")
-  (its-defrule   "r@"    "$B$:(B")
-  (its-defrule   "p@"    "$B$<(B")
-  (its-defrule   "c@"    "$B$>(B")
+  ;; ざ行
+  (its-defrule   "x@"    "ざ")
+  (its-defrule   "d@"    "じ")
+  (its-defrule   "r@"    "ず")
+  (its-defrule   "p@"    "ぜ")
+  (its-defrule   "c@"    "ぞ")
 
-  ;; $B$@9T(B
-  (its-defrule   "q@"    "$B$@(B")
-  (its-defrule   "a@"    "$B$B(B")
-  (its-defrule   "z@"    "$B$E(B")
-  (its-defrule   "w@"    "$B$G(B")
-  (its-defrule   "s@"    "$B$I(B")
+  ;; だ行
+  (its-defrule   "q@"    "だ")
+  (its-defrule   "a@"    "ぢ")
+  (its-defrule   "z@"    "づ")
+  (its-defrule   "w@"    "で")
+  (its-defrule   "s@"    "ど")
 
-  ;; $B$P9T(B
-  (its-defrule   "f@"   "$B$P(B")
-  (its-defrule   "v@"   "$B$S(B")
-  (its-defrule   "2@"   "$B$V(B")
-  (its-defrule   "^@"   "$B$Y(B")
-  (its-defrule   "-@"   "$B$\(B")
+  ;; ば行
+  (its-defrule   "f@"   "ば")
+  (its-defrule   "v@"   "び")
+  (its-defrule   "2@"   "ぶ")
+  (its-defrule   "^@"   "べ")
+  (its-defrule   "-@"   "ぼ")
 
-  ;; $B$Q9T(B
-  (its-defrule   "f["   "$B$Q(B")
-  (its-defrule   "v["   "$B$T(B")
-  (its-defrule   "2["   "$B$W(B")
-  (its-defrule   "^["   "$B$Z(B")
-  (its-defrule   "-["   "$B$](B")
+  ;; ぱ行
+  (its-defrule   "f["   "ぱ")
+  (its-defrule   "v["   "ぴ")
+  (its-defrule   "2["   "ぷ")
+  (its-defrule   "^["   "ぺ")
+  (its-defrule   "-["   "ぽ")
 
   ;;; 
-  ;; $B$d9T(B
-  (its-defrule   "'"   "$B$c(B")
-  (its-defrule   "("   "$B$e(B")
-  (its-defrule   ")"   "$B$g(B")
+  ;; や行
+  (its-defrule   "'"   "ゃ")
+  (its-defrule   "("   "ゅ")
+  (its-defrule   ")"   "ょ")
 
-  ;; $B$"9T(B
-  (its-defrule "#"   "$B$!(B")
-  (its-defrule "E"   "$B$#(B")
-  (its-defrule "$"   "$B$%(B")
-  (its-defrule "%"   "$B$'(B")
-  (its-defrule "&"   "$B$)(B")
+  ;; あ行
+  (its-defrule "#"   "ぁ")
+  (its-defrule "E"   "ぃ")
+  (its-defrule "$"   "ぅ")
+  (its-defrule "%"   "ぇ")
+  (its-defrule "&"   "ぉ")
 
-  (its-defrule "Z"  "$B$C(B")
-  (its-defrule "W0" "$B$n(B")
+  (its-defrule "Z"  "っ")
+  (its-defrule "W0" "ゎ")
 
-  (its-defrule "4@" "$B%t(B")
+  (its-defrule "4@" "ヴ")
 
 ;;;
 ;;; Zenkaku inputs
 ;;;
 
-  (its-defrule (concat its-zenkaku-escape "0") "$B#0(B")
-  (its-defrule (concat its-zenkaku-escape "1") "$B#1(B")
-  (its-defrule (concat its-zenkaku-escape "2") "$B#2(B")
-  (its-defrule (concat its-zenkaku-escape "3") "$B#3(B")
-  (its-defrule (concat its-zenkaku-escape "4") "$B#4(B")
-  (its-defrule (concat its-zenkaku-escape "5") "$B#5(B")
-  (its-defrule (concat its-zenkaku-escape "6") "$B#6(B")
-  (its-defrule (concat its-zenkaku-escape "7") "$B#7(B")
-  (its-defrule (concat its-zenkaku-escape "8") "$B#8(B")
-  (its-defrule (concat its-zenkaku-escape "9") "$B#9(B")
+  (its-defrule (concat its-zenkaku-escape "0") "０")
+  (its-defrule (concat its-zenkaku-escape "1") "１")
+  (its-defrule (concat its-zenkaku-escape "2") "２")
+  (its-defrule (concat its-zenkaku-escape "3") "３")
+  (its-defrule (concat its-zenkaku-escape "4") "４")
+  (its-defrule (concat its-zenkaku-escape "5") "５")
+  (its-defrule (concat its-zenkaku-escape "6") "６")
+  (its-defrule (concat its-zenkaku-escape "7") "７")
+  (its-defrule (concat its-zenkaku-escape "8") "８")
+  (its-defrule (concat its-zenkaku-escape "9") "９")
 
-  (its-defrule (concat its-zenkaku-escape "A") "$B#A(B")
-  (its-defrule (concat its-zenkaku-escape "B") "$B#B(B")
-  (its-defrule (concat its-zenkaku-escape "C") "$B#C(B")
-  (its-defrule (concat its-zenkaku-escape "D") "$B#D(B")
-  (its-defrule (concat its-zenkaku-escape "E") "$B#E(B")
-  (its-defrule (concat its-zenkaku-escape "F") "$B#F(B")
-  (its-defrule (concat its-zenkaku-escape "G") "$B#G(B")
-  (its-defrule (concat its-zenkaku-escape "H") "$B#H(B")
-  (its-defrule (concat its-zenkaku-escape "I") "$B#I(B")
-  (its-defrule (concat its-zenkaku-escape "J") "$B#J(B")
-  (its-defrule (concat its-zenkaku-escape "K") "$B#K(B")
-  (its-defrule (concat its-zenkaku-escape "L") "$B#L(B")
-  (its-defrule (concat its-zenkaku-escape "M") "$B#M(B")
-  (its-defrule (concat its-zenkaku-escape "N") "$B#N(B")
-  (its-defrule (concat its-zenkaku-escape "O") "$B#O(B")
-  (its-defrule (concat its-zenkaku-escape "P") "$B#P(B")
-  (its-defrule (concat its-zenkaku-escape "Q") "$B#Q(B")
-  (its-defrule (concat its-zenkaku-escape "R") "$B#R(B")
-  (its-defrule (concat its-zenkaku-escape "S") "$B#S(B")
-  (its-defrule (concat its-zenkaku-escape "T") "$B#T(B")
-  (its-defrule (concat its-zenkaku-escape "U") "$B#U(B")
-  (its-defrule (concat its-zenkaku-escape "V") "$B#V(B")
-  (its-defrule (concat its-zenkaku-escape "W") "$B#W(B")
-  (its-defrule (concat its-zenkaku-escape "X") "$B#X(B")
-  (its-defrule (concat its-zenkaku-escape "Y") "$B#Y(B")
-  (its-defrule (concat its-zenkaku-escape "Z") "$B#Z(B")
+  (its-defrule (concat its-zenkaku-escape "A") "Ａ")
+  (its-defrule (concat its-zenkaku-escape "B") "Ｂ")
+  (its-defrule (concat its-zenkaku-escape "C") "Ｃ")
+  (its-defrule (concat its-zenkaku-escape "D") "Ｄ")
+  (its-defrule (concat its-zenkaku-escape "E") "Ｅ")
+  (its-defrule (concat its-zenkaku-escape "F") "Ｆ")
+  (its-defrule (concat its-zenkaku-escape "G") "Ｇ")
+  (its-defrule (concat its-zenkaku-escape "H") "Ｈ")
+  (its-defrule (concat its-zenkaku-escape "I") "Ｉ")
+  (its-defrule (concat its-zenkaku-escape "J") "Ｊ")
+  (its-defrule (concat its-zenkaku-escape "K") "Ｋ")
+  (its-defrule (concat its-zenkaku-escape "L") "Ｌ")
+  (its-defrule (concat its-zenkaku-escape "M") "Ｍ")
+  (its-defrule (concat its-zenkaku-escape "N") "Ｎ")
+  (its-defrule (concat its-zenkaku-escape "O") "Ｏ")
+  (its-defrule (concat its-zenkaku-escape "P") "Ｐ")
+  (its-defrule (concat its-zenkaku-escape "Q") "Ｑ")
+  (its-defrule (concat its-zenkaku-escape "R") "Ｒ")
+  (its-defrule (concat its-zenkaku-escape "S") "Ｓ")
+  (its-defrule (concat its-zenkaku-escape "T") "Ｔ")
+  (its-defrule (concat its-zenkaku-escape "U") "Ｕ")
+  (its-defrule (concat its-zenkaku-escape "V") "Ｖ")
+  (its-defrule (concat its-zenkaku-escape "W") "Ｗ")
+  (its-defrule (concat its-zenkaku-escape "X") "Ｘ")
+  (its-defrule (concat its-zenkaku-escape "Y") "Ｙ")
+  (its-defrule (concat its-zenkaku-escape "Z") "Ｚ")
 
-  (its-defrule (concat its-zenkaku-escape "a") "$B#a(B")
-  (its-defrule (concat its-zenkaku-escape "b") "$B#b(B")
-  (its-defrule (concat its-zenkaku-escape "c") "$B#c(B")
-  (its-defrule (concat its-zenkaku-escape "d") "$B#d(B")
-  (its-defrule (concat its-zenkaku-escape "e") "$B#e(B")
-  (its-defrule (concat its-zenkaku-escape "f") "$B#f(B")
-  (its-defrule (concat its-zenkaku-escape "g") "$B#g(B")
-  (its-defrule (concat its-zenkaku-escape "h") "$B#h(B")
-  (its-defrule (concat its-zenkaku-escape "i") "$B#i(B")
-  (its-defrule (concat its-zenkaku-escape "j") "$B#j(B")
-  (its-defrule (concat its-zenkaku-escape "k") "$B#k(B")
-  (its-defrule (concat its-zenkaku-escape "l") "$B#l(B")
-  (its-defrule (concat its-zenkaku-escape "m") "$B#m(B")
-  (its-defrule (concat its-zenkaku-escape "n") "$B#n(B")
-  (its-defrule (concat its-zenkaku-escape "o") "$B#o(B")
-  (its-defrule (concat its-zenkaku-escape "p") "$B#p(B")
-  (its-defrule (concat its-zenkaku-escape "q") "$B#q(B")
-  (its-defrule (concat its-zenkaku-escape "r") "$B#r(B")
-  (its-defrule (concat its-zenkaku-escape "s") "$B#s(B")
-  (its-defrule (concat its-zenkaku-escape "t") "$B#t(B")
-  (its-defrule (concat its-zenkaku-escape "u") "$B#u(B")
-  (its-defrule (concat its-zenkaku-escape "v") "$B#v(B")
-  (its-defrule (concat its-zenkaku-escape "w") "$B#w(B")
-  (its-defrule (concat its-zenkaku-escape "x") "$B#x(B")
-  (its-defrule (concat its-zenkaku-escape "y") "$B#y(B")
-  (its-defrule (concat its-zenkaku-escape "z") "$B#z(B")
+  (its-defrule (concat its-zenkaku-escape "a") "ａ")
+  (its-defrule (concat its-zenkaku-escape "b") "ｂ")
+  (its-defrule (concat its-zenkaku-escape "c") "ｃ")
+  (its-defrule (concat its-zenkaku-escape "d") "ｄ")
+  (its-defrule (concat its-zenkaku-escape "e") "ｅ")
+  (its-defrule (concat its-zenkaku-escape "f") "ｆ")
+  (its-defrule (concat its-zenkaku-escape "g") "ｇ")
+  (its-defrule (concat its-zenkaku-escape "h") "ｈ")
+  (its-defrule (concat its-zenkaku-escape "i") "ｉ")
+  (its-defrule (concat its-zenkaku-escape "j") "ｊ")
+  (its-defrule (concat its-zenkaku-escape "k") "ｋ")
+  (its-defrule (concat its-zenkaku-escape "l") "ｌ")
+  (its-defrule (concat its-zenkaku-escape "m") "ｍ")
+  (its-defrule (concat its-zenkaku-escape "n") "ｎ")
+  (its-defrule (concat its-zenkaku-escape "o") "ｏ")
+  (its-defrule (concat its-zenkaku-escape "p") "ｐ")
+  (its-defrule (concat its-zenkaku-escape "q") "ｑ")
+  (its-defrule (concat its-zenkaku-escape "r") "ｒ")
+  (its-defrule (concat its-zenkaku-escape "s") "ｓ")
+  (its-defrule (concat its-zenkaku-escape "t") "ｔ")
+  (its-defrule (concat its-zenkaku-escape "u") "ｕ")
+  (its-defrule (concat its-zenkaku-escape "v") "ｖ")
+  (its-defrule (concat its-zenkaku-escape "w") "ｗ")
+  (its-defrule (concat its-zenkaku-escape "x") "ｘ")
+  (its-defrule (concat its-zenkaku-escape "y") "ｙ")
+  (its-defrule (concat its-zenkaku-escape "z") "ｚ")
 
-  (its-defrule (concat its-zenkaku-escape " ")  "$B!!(B")
-  (its-defrule (concat its-zenkaku-escape "!")  "$B!*(B")
-  (its-defrule (concat its-zenkaku-escape "@")  "$B!w(B")
-  (its-defrule (concat its-zenkaku-escape "#")  "$B!t(B")
-  (its-defrule (concat its-zenkaku-escape "$")  "$B!p(B")
-  (its-defrule (concat its-zenkaku-escape "%")  "$B!s(B")
-  (its-defrule (concat its-zenkaku-escape "^")  "$B!0(B")
-  (its-defrule (concat its-zenkaku-escape "&")  "$B!u(B")
-  (its-defrule (concat its-zenkaku-escape "*")  "$B!v(B")
-  (its-defrule (concat its-zenkaku-escape "(")  "$B!J(B")
-  (its-defrule (concat its-zenkaku-escape ")")  "$B!K(B")
-  (its-defrule (concat its-zenkaku-escape "-")  "$B!](B")
-  (its-defrule (concat its-zenkaku-escape "=")  "$B!a(B")
-  (its-defrule (concat its-zenkaku-escape "`")  "$B!.(B")
-  (its-defrule (concat its-zenkaku-escape "\\") "$B!o(B")
-  (its-defrule (concat its-zenkaku-escape "|")  "$B!C(B")
-  (its-defrule (concat its-zenkaku-escape "_")  "$B!2(B")
-  (its-defrule (concat its-zenkaku-escape "+")  "$B!\(B")
-  (its-defrule (concat its-zenkaku-escape "~")  "$B!1(B")
-  (its-defrule (concat its-zenkaku-escape "[")  "$B!N(B")
-  (its-defrule (concat its-zenkaku-escape "]")  "$B!O(B")
-  (its-defrule (concat its-zenkaku-escape "{")  "$B!P(B")
-  (its-defrule (concat its-zenkaku-escape "}")  "$B!Q(B")
-  (its-defrule (concat its-zenkaku-escape ":")  "$B!'(B")
-  (its-defrule (concat its-zenkaku-escape ";")  "$B!((B")
-  (its-defrule (concat its-zenkaku-escape "\"") "$B!I(B")
-  (its-defrule (concat its-zenkaku-escape "'")  "$B!G(B")
-  (its-defrule (concat its-zenkaku-escape "<")  "$B!c(B")
-  (its-defrule (concat its-zenkaku-escape ">")  "$B!d(B")
-  (its-defrule (concat its-zenkaku-escape "?")  "$B!)(B")
-  (its-defrule (concat its-zenkaku-escape "/")  "$B!?(B")
-  (its-defrule (concat its-zenkaku-escape ",")  "$B!$(B")
-  (its-defrule (concat its-zenkaku-escape ".")  "$B!%(B")
+  (its-defrule (concat its-zenkaku-escape " ")  "　")
+  (its-defrule (concat its-zenkaku-escape "!")  "！")
+  (its-defrule (concat its-zenkaku-escape "@")  "＠")
+  (its-defrule (concat its-zenkaku-escape "#")  "＃")
+  (its-defrule (concat its-zenkaku-escape "$")  "＄")
+  (its-defrule (concat its-zenkaku-escape "%")  "％")
+  (its-defrule (concat its-zenkaku-escape "^")  "＾")
+  (its-defrule (concat its-zenkaku-escape "&")  "＆")
+  (its-defrule (concat its-zenkaku-escape "*")  "＊")
+  (its-defrule (concat its-zenkaku-escape "(")  "（")
+  (its-defrule (concat its-zenkaku-escape ")")  "）")
+  (its-defrule (concat its-zenkaku-escape "-")  "−")
+  (its-defrule (concat its-zenkaku-escape "=")  "＝")
+  (its-defrule (concat its-zenkaku-escape "`")  "｀")
+  (its-defrule (concat its-zenkaku-escape "\\") "￥")
+  (its-defrule (concat its-zenkaku-escape "|")  "｜")
+  (its-defrule (concat its-zenkaku-escape "_")  "＿")
+  (its-defrule (concat its-zenkaku-escape "+")  "＋")
+  (its-defrule (concat its-zenkaku-escape "~")  "￣")
+  (its-defrule (concat its-zenkaku-escape "[")  "［")
+  (its-defrule (concat its-zenkaku-escape "]")  "］")
+  (its-defrule (concat its-zenkaku-escape "{")  "｛")
+  (its-defrule (concat its-zenkaku-escape "}")  "｝")
+  (its-defrule (concat its-zenkaku-escape ":")  "：")
+  (its-defrule (concat its-zenkaku-escape ";")  "；")
+  (its-defrule (concat its-zenkaku-escape "\"") "”")
+  (its-defrule (concat its-zenkaku-escape "'")  "’")
+  (its-defrule (concat its-zenkaku-escape "<")  "＜")
+  (its-defrule (concat its-zenkaku-escape ">")  "＞")
+  (its-defrule (concat its-zenkaku-escape "?")  "？")
+  (its-defrule (concat its-zenkaku-escape "/")  "／")
+  (its-defrule (concat its-zenkaku-escape ",")  "，")
+  (its-defrule (concat its-zenkaku-escape ".")  "．")
 
 ;;;
 ;;; Hankaku inputs
@@ -325,53 +325,53 @@
     (its-defrule (concat its-hankaku-escape upcase) upcase))
 
 ;; SYMBOL Input
-  (its-defrule   "X1"   "$B!{(B")	(its-defrule   "X!"   "$B!|(B")
-  (its-defrule   "X2"   "$B"&(B")	(its-defrule   "X@"   "$B"'(B")
-  (its-defrule   "X3"   "$B"$(B")	(its-defrule   "X#"   "$B"%(B")
-  (its-defrule   "X4"   "$B""(B")	(its-defrule   "X$"   "$B"#(B")
-  (its-defrule   "X5"   "$B!~(B")	(its-defrule   "X%"   "$B"!(B")
-  (its-defrule   "X6"   "$B!y(B")	(its-defrule   "X^"   "$B!z(B")
-  (its-defrule   "X7"   "$B!}(B")	(its-defrule   "X&"   "$B!r(B")
-  (its-defrule   "X8"   "$B!q(B")	(its-defrule   "X*"   "$B!_(B")
-  (its-defrule   "X9"   "$B!i(B")	(its-defrule   "X("   "$B!Z(B")
-  (its-defrule   "X0"   "$B!j(B")	(its-defrule   "X)"   "$B![(B")
-  (its-defrule   "X-"   "$B!A(B")	(its-defrule   "X_"   "$B!h(B")
-  (its-defrule   "X="   "$B!b(B")	(its-defrule   "X+"   "$B!^(B")
-  (its-defrule   "X\\"  "$B!@(B")	(its-defrule   "X|"   "$B!B(B")
-  (its-defrule   "X`"   "$B!-(B")	(its-defrule   "X~"   "$B!/(B")
+  (its-defrule   "X1"   "○")	(its-defrule   "X!"   "●")
+  (its-defrule   "X2"   "▽")	(its-defrule   "X@"   "▼")
+  (its-defrule   "X3"   "△")	(its-defrule   "X#"   "▲")
+  (its-defrule   "X4"   "□")	(its-defrule   "X$"   "■")
+  (its-defrule   "X5"   "◇")	(its-defrule   "X%"   "◆")
+  (its-defrule   "X6"   "☆")	(its-defrule   "X^"   "★")
+  (its-defrule   "X7"   "◎")	(its-defrule   "X&"   "£")
+  (its-defrule   "X8"   "¢")	(its-defrule   "X*"   "×")
+  (its-defrule   "X9"   "♂")	(its-defrule   "X("   "【")
+  (its-defrule   "X0"   "♀")	(its-defrule   "X)"   "】")
+  (its-defrule   "X-"   "〜")	(its-defrule   "X_"   "∴")
+  (its-defrule   "X="   "≠")	(its-defrule   "X+"   "±")
+  (its-defrule   "X\\"  "＼")	(its-defrule   "X|"   "‖")
+  (its-defrule   "X`"   "´")	(its-defrule   "X~"   "¨")
 
-  (its-defrule   "Xq"   "$B!T(B")	(its-defrule   "XQ"   "$B!R(B")
-  (its-defrule   "Xw"   "$B!U(B")	(its-defrule   "XW"   "$B!S(B")
+  (its-defrule   "Xq"   "《")	(its-defrule   "XQ"   "〈")
+  (its-defrule   "Xw"   "》")	(its-defrule   "XW"   "〉")
 					; e
-  (its-defrule   "Xr"   "$B!9(B")	(its-defrule   "XR"   "$B!8(B")
-  (its-defrule   "Xt"   "$B!:(B")	(its-defrule   "XT"   "$B!x(B")
+  (its-defrule   "Xr"   "々")	(its-defrule   "XR"   "仝")
+  (its-defrule   "Xt"   "〆")	(its-defrule   "XT"   "§")
 					; y u i o
-  (its-defrule   "Xp"   "$B")(B")	(its-defrule   "XP"   "$B",(B")
-  (its-defrule   "X["   "$B!X(B")	(its-defrule   "X{"   "$B!L(B")
-  (its-defrule   "X]"   "$B!Y(B")	(its-defrule   "X}"   "$B!M(B")
+  (its-defrule   "Xp"   "〒")	(its-defrule   "XP"   "↑")
+  (its-defrule   "X["   "『")	(its-defrule   "X{"   "〔")
+  (its-defrule   "X]"   "』")	(its-defrule   "X}"   "〕")
 
 					; a
-  (its-defrule   "Xs"   "$B!3(B")	(its-defrule   "XS"   "$B!4(B")
-  (its-defrule   "Xd"   "$B!5(B")	(its-defrule   "XD"   "$B!6(B")
-  (its-defrule   "Xf"   "$B!7(B")	(its-defrule   "XF"   "$B"*(B")
-  (its-defrule   "Xg"   "$B!>(B")	(its-defrule   "XG"   "$B!=(B")
-  (its-defrule   "Xh"   "$B"+(B")
-  (its-defrule   "Xj"   "$B"-(B")
-  (its-defrule   "Xk"   "$B",(B")
-  (its-defrule   "Xl"   "$B"*(B")
-  (its-defrule   "X;"   "$B!+(B")	(its-defrule   "X:"   "$B!,(B")
-  (its-defrule   "X\'"  "$B!F(B")	(its-defrule   "X\""  "$B!H(B")
+  (its-defrule   "Xs"   "ヽ")	(its-defrule   "XS"   "ヾ")
+  (its-defrule   "Xd"   "ゝ")	(its-defrule   "XD"   "ゞ")
+  (its-defrule   "Xf"   "〃")	(its-defrule   "XF"   "→")
+  (its-defrule   "Xg"   "‐")	(its-defrule   "XG"   "—")
+  (its-defrule   "Xh"   "←")
+  (its-defrule   "Xj"   "↓")
+  (its-defrule   "Xk"   "↑")
+  (its-defrule   "Xl"   "→")
+  (its-defrule   "X;"   "゛")	(its-defrule   "X:"   "゜")
+  (its-defrule   "X\'"  "‘")	(its-defrule   "X\""  "“")
 
 					; z
   (its-defrule   "Xx"   ":-")	(its-defrule   "XX"   ":-)")
-  (its-defrule   "Xc"   "$B!;(B")	(its-defrule   "XC"   "$B!n(B")
-  (its-defrule   "Xv"   "$B"((B")	(its-defrule   "XV"   "$B!`(B")
-  (its-defrule   "Xb"   "$B!k(B")	(its-defrule   "XB"   "$B"+(B")
-  (its-defrule   "Xn"   "$B!l(B")	(its-defrule   "XN"   "$B"-(B")
-  (its-defrule   "Xm"   "$B!m(B")	(its-defrule   "XM"   "$B".(B")
-  (its-defrule   "X,"   "$B!E(B")	(its-defrule   "X<"   "$B!e(B")
-  (its-defrule   "X."   "$B!D(B")	(its-defrule   "X>"   "$B!f(B")
-  (its-defrule   "X/"   "$B!&(B")	(its-defrule   "X?"   "$B!g(B")
+  (its-defrule   "Xc"   "〇")	(its-defrule   "XC"   "℃")
+  (its-defrule   "Xv"   "※")	(its-defrule   "XV"   "÷")
+  (its-defrule   "Xb"   "°")	(its-defrule   "XB"   "←")
+  (its-defrule   "Xn"   "′")	(its-defrule   "XN"   "↓")
+  (its-defrule   "Xm"   "″")	(its-defrule   "XM"   "〓")
+  (its-defrule   "X,"   "‥")	(its-defrule   "X<"   "≦")
+  (its-defrule   "X."   "…")	(its-defrule   "X>"   "≧")
+  (its-defrule   "X/"   "・")	(its-defrule   "X?"   "∞")
   )
 
 (define-its-state-machine-append its-jiskana-map

@@ -64,45 +64,45 @@
 
 (egg-add-message
  '((Japanese
-    (canna-connect-error  "$B%5!<%P$H@\B3$G$-$^$;$s$G$7$?(B")
-    (canna-fail-make-env  "$B4D6-$r:n$k$3$H$O$G$-$^$;$s$G$7$?(B")
-    (canna-dict-missing-1 "$B<-=q%U%!%$%k(B %s $B$,$"$j$^$;$s!#(B")
-    (canna-dict-missing-2 "$B<-=q%U%!%$%k(B %s $B$,$"$j$^$;$s!#:n$j$^$9$+(B? ")
-    (canna-dict-created   "$B<-=q%U%!%$%k(B %s $B$r:n$j$^$7$?(B")
-    (canna-dict-saving    "%s $B$NIQEY>pJs!&<-=q>pJs$rB`Hr$7$F$$$^$9(B")
-    (canna-dict-saved     "%s $B$NIQEY>pJs!&<-=q>pJs$rB`Hr$7$^$7$?(B")
-    (canna-register-1     "$BEPO?<-=qL>(B:")
-    (canna-register-2     "$BIJ;lL>(B"))))
+    (canna-connect-error  "サーバと接続できませんでした")
+    (canna-fail-make-env  "環境を作ることはできませんでした")
+    (canna-dict-missing-1 "辞書ファイル %s がありません。")
+    (canna-dict-missing-2 "辞書ファイル %s がありません。作りますか? ")
+    (canna-dict-created   "辞書ファイル %s を作りました")
+    (canna-dict-saving    "%s の頻度情報・辞書情報を退避しています")
+    (canna-dict-saved     "%s の頻度情報・辞書情報を退避しました")
+    (canna-register-1     "登録辞書名:")
+    (canna-register-2     "品詞名"))))
 
 (defvar canna-hinshi-alist
-  '(("$B?ML>(B" . "#JN") ("$BCOL>(B" . "#CN") ("$B8GM-L>;l(B" . "#KK")
-    ("$B0lHLL>;l(B" . "#T35") ("$BL>;l(B($BNc(B)$B6/NO$J(B" . "#T15")
-    ("$B%5JQL>;l(B" . "#T30") ("$B%5JQL>;l(B($BNc(B)$B0B?4$J(B" . "#T10") ("$BC14A;z(B" . "#KJ")
-    ("$BF0;l%+9TJQ3J3hMQ(B" . "#KX") ("$BF0;l%s%69TJQ3J3hMQ(B" . "#NZX")
-    ("$BF0;l%69TJQ3J3hMQ(B" . "#ZX") ("$BF0;l%59TJQ3J3hMQ(B" . "#SX")
-    ("$BF0;l%+9T8^CJ3hMQ(B" . "#K5") ("$BF0;l%,9T8^CJ3hMQ(B" . "#G5")
-    ("$BF0;l%59T8^CJ3hMQ(B" . "#S5") ("$BF0;l%?9T8^CJ3hMQ(B" . "#T5")
-    ("$BF0;l%J9T8^CJ3hMQ(B" . "#N5") ("$BF0;l%P9T8^CJ3hMQ(B" . "#B5")
-    ("$BF0;l%^9T8^CJ3hMQ(B" . "#M5") ("$BF0;l%i9T8^CJ3hMQ(B" . "#R5")
-    ("$BF0;l%o9T8^CJ3hMQ(B" . "#W5") ("$BF0;l>e2<0lCJ3hMQ(B" . "#KS")
-    ("$BF0;l%+9T8^CJO"MQL>;l(B" . "#K5r") ("$BF0;l%,9T8^CJO"MQL>;l(B" . "#G5r")
-    ("$BF0;l%59T8^CJO"MQL>;l(B" . "#S5r") ("$BF0;l%?9T8^CJO"MQL>;l(B" . "#T5r")
-    ("$BF0;l%J9T8^CJO"MQL>;l(B" . "#N5r") ("$BF0;l%P9T8^CJO"MQL>;l(B" . "#B5r")
-    ("$BF0;l%^9T8^CJO"MQL>;l(B" . "#M5r") ("$BF0;l%i9T8^CJO"MQL>;l(B" . "#R5r")
-    ("$BF0;l%o9T8^CJO"MQL>;l(B" . "#W5r") ("$BF0;l>e2<0lCJ8l44L>;l(B" . "#KSr")
-    ("$B7AMF;l(B" . "#KY") ("$B7AMF;l(B($BNc(B)$B$-$$$m$$(B" . "#KYT")
-    ("$B7AMFF0;l(B" . "#T05")
-    ("$B7AMFF0;l(B($BNc(B)$B4X?4$@(B" . "#T10") ("$B7AMFF0;l(B($BNc(B)$BB?92$F$@(B" . "#T13")
-    ("$B7AMFF0;l(B($BNc(B)$B0U30$@(B" . "#T15") ("$B7AMFF0;l(B($BNc(B)$BJXMx$@(B" . "#T18")
-    ("$BI{;l(B" . "#F14") ("$BI{;l(B($BNc(B)$B$U$C$/$i(B" . "#F04")
-    ("$BI{;l(B($BNc(B)$B$=$C$H(B" . "#F12") ("$BI{;l(B($BNc(B)$BFMA3(B" . "#F06")
-    ("$B?t;l(B" . "#NN") ("$B@\B3;l!&46F0;l(B" . "#CJ") ("$BO"BN;l(B" . "#RT")))
+  '(("人名" . "#JN") ("地名" . "#CN") ("固有名詞" . "#KK")
+    ("一般名詞" . "#T35") ("名詞(例)強力な" . "#T15")
+    ("サ変名詞" . "#T30") ("サ変名詞(例)安心な" . "#T10") ("単漢字" . "#KJ")
+    ("動詞カ行変格活用" . "#KX") ("動詞ンザ行変格活用" . "#NZX")
+    ("動詞ザ行変格活用" . "#ZX") ("動詞サ行変格活用" . "#SX")
+    ("動詞カ行五段活用" . "#K5") ("動詞ガ行五段活用" . "#G5")
+    ("動詞サ行五段活用" . "#S5") ("動詞タ行五段活用" . "#T5")
+    ("動詞ナ行五段活用" . "#N5") ("動詞バ行五段活用" . "#B5")
+    ("動詞マ行五段活用" . "#M5") ("動詞ラ行五段活用" . "#R5")
+    ("動詞ワ行五段活用" . "#W5") ("動詞上下一段活用" . "#KS")
+    ("動詞カ行五段連用名詞" . "#K5r") ("動詞ガ行五段連用名詞" . "#G5r")
+    ("動詞サ行五段連用名詞" . "#S5r") ("動詞タ行五段連用名詞" . "#T5r")
+    ("動詞ナ行五段連用名詞" . "#N5r") ("動詞バ行五段連用名詞" . "#B5r")
+    ("動詞マ行五段連用名詞" . "#M5r") ("動詞ラ行五段連用名詞" . "#R5r")
+    ("動詞ワ行五段連用名詞" . "#W5r") ("動詞上下一段語幹名詞" . "#KSr")
+    ("形容詞" . "#KY") ("形容詞(例)きいろい" . "#KYT")
+    ("形容動詞" . "#T05")
+    ("形容動詞(例)関心だ" . "#T10") ("形容動詞(例)多慌てだ" . "#T13")
+    ("形容動詞(例)意外だ" . "#T15") ("形容動詞(例)便利だ" . "#T18")
+    ("副詞" . "#F14") ("副詞(例)ふっくら" . "#F04")
+    ("副詞(例)そっと" . "#F12") ("副詞(例)突然" . "#F06")
+    ("数詞" . "#NN") ("接続詞・感動詞" . "#CJ") ("連体詞" . "#RT")))
 
 (defvar canna-hinshi-menu
-  '("$B?ML>(B" "$BCOL>(B" ("$BCDBN!&2q<RL>(B" . "$B8GM-L>;l(B") ("$BL>;l(B" . MEISHI)
-    ("$B%5JQL>;l(B" . SAHEN-MEISHI) "$BC14A;z(B" ("$BF0;l(B" . DOUSHI)
-    ("$B7AMF;l(B" . KEIYOUSHI) ("$B7AMFF0;l(B" . KEIYOUDOUSHI) ("$BI{;l(B" . FUKUSHI)
-    "$B?t;l(B" "$B@\B3;l!&46F0;l(B" "$BO"BN;l(B" ("$B$=$NB>$N8GM-L>;l(B" . "$B8GM-L>;l(B"))
+  '("人名" "地名" ("団体・会社名" . "固有名詞") ("名詞" . MEISHI)
+    ("サ変名詞" . SAHEN-MEISHI) "単漢字" ("動詞" . DOUSHI)
+    ("形容詞" . KEIYOUSHI) ("形容動詞" . KEIYOUDOUSHI) ("副詞" . FUKUSHI)
+    "数詞" "接続詞・感動詞" "連体詞" ("その他の固有名詞" . "固有名詞"))
   "Menu data for a hinshi (a part of speech) selection.")
 
 (defun canna-hinshi-name (id &optional reverse)
@@ -509,7 +509,7 @@ katakana to candidates list. NOSTUDY specifies not study."
 Return the list of bunsetsu."
   (let* ((env (canna-get-environment backend))
 	 (bunsetsu-list (cannarpc-begin-conversion env yomi)))
-    (if (numberp bunsetsu-list) ; XXX error $B$N=hM}E,Ev(B
+    (if (numberp bunsetsu-list) ; XXX error の処理適当
 	(progn
 	  (if (= -1 (cannarpc-cancel-conversion env))
 	      (progn
@@ -524,7 +524,7 @@ Return the list of bunsetsu."
 	 (len (length bunsetsu-list))
 	 (zenkouho-pos-vector (make-vector (* 2 len) 0))
 	 (i 0)
-	 (mode (if (cannaenv-get-nostudy env) 0 1)) ; MODE=1 $B3X=,(B  0 $B$7$J$$(B
+	 (mode (if (cannaenv-get-nostudy env) 0 1)) ; MODE=1 学習  0 しない
 	 bunsetsu zenkouho-pos)
     (if abort
 	(setq mode 0))
@@ -678,10 +678,10 @@ Return the list of bunsetsu."
 			     dic-list)))))
 
 (defun canna-hinshi-MEISHI (kanji yomi)
-  (if (y-or-n-p (concat "$B!V(B" kanji "$B$J!W$O@5$7$$$G$9$+!#(B")) "#T15" "#T35"))
+  (if (y-or-n-p (concat "「" kanji "な」は正しいですか。")) "#T15" "#T35"))
 
 (defun canna-hinshi-SAHEN-MEISHI (kanji yomi)
-  (if (y-or-n-p (concat "$B!V(B" kanji "$B$J!W$O@5$7$$$G$9$+!#(B")) "#T10" "#T30"))
+  (if (y-or-n-p (concat "「" kanji "な」は正しいですか。")) "#T10" "#T30"))
 
 (defmacro canna-hinshi-DOUSHI-check-gobi ()
   '(progn
@@ -706,9 +706,9 @@ Return the list of bunsetsu."
        (setq i (1+ i)))))
 
 (defun canna-hinshi-DOUSHI (kanji yomi)
-  (let ((gobi    "$B$/$0$9$D$L$V$`$k$&(B")
-	(re-gobi "$B$-$.$7$A$K$S$_$j$$(B")
-	(mi-gobi "$B$+$,$5$?$J$P$^$i$o(B")
+  (let ((gobi    "くぐすつぬぶむるう")
+	(re-gobi "きぎしちにびみりい")
+	(mi-gobi "かがさたなばまらわ")
 	(hinshi (list "#K5" "#G5" "#S5" "#T5" "#N5" "#B5" "#M5" "#R5" "#W5"))
 	kanji-gokan yomi-gokan kanji-gobi yomi-gobi mizen renyou
 	i ret1 ret2 ret)
@@ -716,41 +716,41 @@ Return the list of bunsetsu."
     (if (not (and (> (length kanji) 1) (> (length yomi) 1)
 		  (and kanji-gobi yomi-gobi (equal kanji-gobi yomi-gobi))))
 	(if (and kanji-gobi yomi-gobi)
-	    (egg-error "$BFI$_$H8uJd$N3hMQ$,0c$$$^$9!#F~NO$7$J$*$7$F$/$@$5$$!#(B")
-	  (egg-error "$BFI$_$H8uJd$r=*;_7A$GF~NO$7$F$/$@$5$$!#(B")))
+	    (egg-error "読みと候補の活用が違います。入力しなおしてください。")
+	  (egg-error "読みと候補を終止形で入力してください。")))
     (cond ((and (> (length kanji) 2) (> (length yomi) 2)
-		(string-match "$B$/$k(B$" kanji) (string-match "$B$/$k(B$" yomi))
+		(string-match "くる$" kanji) (string-match "くる$" yomi))
 	   (setq ret "#KX")
 	   (setq kanji-gokan (substring kanji 0 (- (length kanji) 2)))
 	   (setq yomi-gokan  (substring yomi  0 (- (length  yomi) 2))))
 	  ((and (> (length kanji) 3) (> (length yomi) 3)
-		(string-match "$B$s$:$k(B$" kanji) (string-match "$B$s$:$k(B$" yomi))
+		(string-match "んずる$" kanji) (string-match "んずる$" yomi))
 	   (setq ret "#NZX")
 	   (setq kanji-gokan (substring kanji 0 (- (length kanji) 3)))
 	   (setq yomi-gokan  (substring yomi  0 (- (length  yomi) 3))))
 	  ((and (> (length kanji) 2) (> (length yomi) 2)
-		(string-match "$B$:$k(B$" kanji) (string-match "$B$:$k(B$" yomi))
+		(string-match "ずる$" kanji) (string-match "ずる$" yomi))
 	   (setq ret "#ZX")
 	   (setq kanji-gokan (substring kanji 0 (- (length kanji) 2)))
 	   (setq yomi-gokan  (substring yomi  0 (- (length  yomi) 2))))
 	  ((and (> (length kanji) 2) (> (length yomi) 2)
-		(string-match "$B$9$k(B$" kanji) (string-match "$B$9$k(B$" yomi))
+		(string-match "する$" kanji) (string-match "する$" yomi))
 	   (setq ret "#SX")
 	   (setq kanji-gokan (substring kanji 0 (- (length kanji) 2)))
 	   (setq yomi-gokan  (substring yomi  0 (- (length  yomi) 2)))))
     (if (not (string-match "5$" ret))
-	(if (y-or-n-p (concat "$B!X(B" kanji "$B!Y$r(B (" (canna-hinshi-name ret)
-			      ") $B$H$7$FEPO?$7$^$9$+(B? "))
+	(if (y-or-n-p (concat "『" kanji "』を (" (canna-hinshi-name ret)
+			      ") として登録しますか? "))
 	    (setq ret (list kanji-gokan yomi-gokan ret))
 	  (setq ret "#R5")
 	  (setq kanji-gokan (substring kanji 0 (- (length kanji) 1)))
 	  (setq yomi-gokan  (substring yomi  0 (- (length  yomi) 1)))))
     (if (listp ret)
 	ret
-      (if (y-or-n-p "$B$5$i$K:Y$+$$IJ;lJ,$1$N$?$a$N<ALd$r$7$F$bNI$$$G$9$+(B? ")
+      (if (y-or-n-p "さらに細かい品詞分けのための質問をしても良いですか? ")
 	  (progn
-	    (setq ret1 (y-or-n-p (concat "$B!V(B" kanji-gokan mizen
-					 "$B$J$$!W$O@5$7$$$G$9$+!#(B")))
+	    (setq ret1 (y-or-n-p (concat "「" kanji-gokan mizen
+					 "ない」は正しいですか。")))
 	    (setq i 0)
 	    (if (eq "#R5" ret)
 		(while (> 9 i)
@@ -759,8 +759,8 @@ Return the list of bunsetsu."
 		      (progn (setq renyou nil)
 			     (setq i 9)))
 		  (setq i (1+ i))))
-	    (setq ret2 (y-or-n-p (concat "$B!V(B" kanji-gokan renyou
-					 "$B$,$$$$!W$O@5$7$$$G$9$+!#(B")))
+	    (setq ret2 (y-or-n-p (concat "「" kanji-gokan renyou
+					 "がいい」は正しいですか。")))
 	    (setq ret (if ret1 (if ret2 (concat ret "r") ret)
 			(if ret2 "#KSr" "#KS")))))
       (list kanji-gokan yomi-gokan ret))))
@@ -768,13 +768,13 @@ Return the list of bunsetsu."
 (defun canna-hinshi-KEIYOUSHI (kanji yomi)
   (let (ret)
     (if (not (and (> (length kanji) 1) (> (length yomi) 1)
-		  (string-match "$B$$(B$" yomi) (string-match "$B$$(B$" kanji)))
-	(egg-error "$BFI$_$H8uJd$r(B $B=*;_7A$GF~NO$7$F$/$@$5$$!#Nc(B) $BAa$$(B"))
+		  (string-match "い$" yomi) (string-match "い$" kanji)))
+	(egg-error "読みと候補を 終止形で入力してください。例) 早い"))
     (setq kanji (substring kanji 0 (1- (length kanji))))
     (setq yomi (substring yomi 0 (1- (length yomi))))
     (setq ret
-	  (if (y-or-n-p "$B$5$i$K:Y$+$$IJ;lJ,$1$N$?$a$N<ALd$r$7$F$bNI$$$G$9$+(B? ")
-	      (if (y-or-n-p (concat "$B!V(B" kanji "$B!W$O@5$7$$$G$9$+!#(B"))
+	  (if (y-or-n-p "さらに細かい品詞分けのための質問をしても良いですか? ")
+	      (if (y-or-n-p (concat "「" kanji "」は正しいですか。"))
 		  "#KYT" "#KY")
 	    "#KY"))
     (list kanji yomi ret)))
@@ -782,27 +782,27 @@ Return the list of bunsetsu."
 (defun canna-hinshi-KEIYOUDOUSHI (kanji yomi)
   (let (ret1 ret2 ret)
     (if (not (and (> (length kanji) 1) (> (length yomi) 1)
-		  (string-match "$B$@(B$" yomi) (string-match "$B$@(B$" kanji)))
-	(egg-error "$BFI$_$H8uJd$r(B $B=*;_7A$GF~NO$7$F$/$@$5$$!#Nc(B) $B@E$+$@(B"))
+		  (string-match "だ$" yomi) (string-match "だ$" kanji)))
+	(egg-error "読みと候補を 終止形で入力してください。例) 静かだ"))
     (setq kanji (substring kanji 0 (1- (length kanji))))
     (setq yomi (substring yomi 0 (1- (length yomi))))
     (setq ret
-	  (if (y-or-n-p "$B$5$i$K:Y$+$$IJ;lJ,$1$N$?$a$N<ALd$r$7$F$bNI$$$G$9$+(B? ")
+	  (if (y-or-n-p "さらに細かい品詞分けのための質問をしても良いですか? ")
 	      (progn
 		(setq ret1 (y-or-n-p
-			    (concat "$B!V(B" kanji "$B$9$k!W$O@5$7$$$G$9$+!#(B")))
+			    (concat "「" kanji "する」は正しいですか。")))
 		(setq ret2 (y-or-n-p
-			    (concat "$B!V(B" kanji "$B$,$"$k!W$O@5$7$$$G$9$+!#(B")))
+			    (concat "「" kanji "がある」は正しいですか。")))
 		(if ret1 (if ret2 "#T10" "#T13") (if ret2 "#T15" "#T18")))
 	    "#T05"))
     (list kanji yomi ret)))
 
 (defun canna-hinshi-FUKUSHI (kanji yomi)
   (let (ret1 ret2)
-    (if (y-or-n-p "$B$5$i$K:Y$+$$IJ;lJ,$1$N$?$a$N<ALd$r$7$F$bNI$$$G$9$+(B? ")
+    (if (y-or-n-p "さらに細かい品詞分けのための質問をしても良いですか? ")
 	(progn
-	  (setq ret1 (y-or-n-p (concat "$B!V(B" kanji "$B$9$k!W$O@5$7$$$G$9$+!#(B")))
-	  (setq ret2 (y-or-n-p (concat "$B!V(B" kanji "$B$H!W$O@5$7$$$G$9$+!#(B")))
+	  (setq ret1 (y-or-n-p (concat "「" kanji "する」は正しいですか。")))
+	  (setq ret2 (y-or-n-p (concat "「" kanji "と」は正しいですか。")))
 	  (if ret1 (if ret2 "#F04" "#F12") (if ret2 "#F06" "#F14")))
       "#F14")))
 
@@ -885,12 +885,12 @@ Return the list of bunsetsu."
     (cond
      ((null kouho-list)
       (cannarpc-close-context envd)
-      (egg-error "$BEPO?$5$l$F$$$^$;$s!#(B"))
+      (egg-error "登録されていません。"))
      ((eq 1 (length kouho-list))
       (setq zpos 0)
       (setq kanji (car (car kouho-list))))
      (t
-      (setq kanji (menudiag-select (list 'menu "$B:o=|(B:" kouho-list) nil nil t))
+      (setq kanji (menudiag-select (list 'menu "削除:" kouho-list) nil nil t))
       (setq zpos (cdr (car kanji)))
       (setq kanji (car (car kanji)))))
     (setq hinshi (cannarpc-get-hinshi envd bunsetsu-pos zpos))
@@ -898,12 +898,12 @@ Return the list of bunsetsu."
     (cannarpc-cancel-conversion envd)
     (if (string-match "#[^#]+" hinshi)
 	(setq hinshi (substring hinshi 0 (match-end 0)))
-      (egg-error "$BIJ;l>pJs$,<hF@$G$-$^$;$s!#(B"))
+      (egg-error "品詞情報が取得できません。"))
     (setq kanji (substring kanji 0 (nth 1 (car lex))))
     (setq yomi (substring yomi 0 (car (car lex))))
-    (if (y-or-n-p (concat "$B!X(B" kanji "$B!Y(B(" yomi ": "
-			  (canna-hinshi-name hinshi) ")$B$r(B "
-			  dic " $B$+$i:o=|$7$^$9$+(B? "))
+    (if (y-or-n-p (concat "『" kanji "』(" yomi ": "
+			  (canna-hinshi-name hinshi) ")を "
+			  dic " から削除しますか? "))
 	(setq result
 	      (cannarpc-delete-word envd dic yomi kanji hinshi))
       (setq result -1))
@@ -913,7 +913,7 @@ Return the list of bunsetsu."
 	  (cannarpc-close-context envd)
 	  (list kanji yomi (canna-hinshi-name hinshi) dic))
       (cannarpc-close-context envd)
-      (egg-error "$B:o=|$5$l$^$;$s$G$7$?!#(B"))
+      (egg-error "削除されませんでした。"))
     ))
 
 ;;; setup

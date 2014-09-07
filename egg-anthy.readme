@@ -1,170 +1,170 @@
-$B!X<+2H@=(B egg-anthy$B!Y$K$D$$$F(B
+『自家製 egg-anthy』について
 
-1. $B<+2H@=(B egg-anthy $B$K$D$$$F(B
- $B$3$N(B tar ball $B$OGr0f=(9T(B(*1)$B$,8D?ME*$K(B Anthy(*2) $B$r(B Tamago Ver.4(*3) $B$+(B
- $B$i(B *$B$A$c$s$H(B* $B;H$*$&!*$H;W$$$?$A$G$C$A$"$2$?(B elisp $B72$G$9!#$\$/$O!"(BMeadow
- $B$d(B Zaurus $B>e$N(B Emacs $B$G(B egg-anthy $B$r;H$C$F$a$A$c$/$A$c9,$;$K$J$j$^$7$?!#(B
+1. 自家製 egg-anthy について
+ この tar ball は白井秀行(*1)が個人的に Anthy(*2) を Tamago Ver.4(*3) か
+ ら *ちゃんと* 使おう！と思いたちでっちあげた elisp 群です。ぼくは、Meadow
+ や Zaurus 上の Emacs で egg-anthy を使ってめちゃくちゃ幸せになりました。
 
- $B;d$O(B
+ 私は
 
- (1) Meadow $B$J(B NotePC $B$G;}$AJb$/$+$i!"%5!<%P$K7R$2$i$l$J$$$N$G(B Meadow $B$+$i(B
-     $B$b(B MS-IME $B$GHa$7$$!#$@$1$I!"(Banthy $B$C$F(B cygwin $B$G(B make $B$G$-$k$J$!!#(B
+ (1) Meadow な NotePC で持ち歩くから、サーバに繋げられないので Meadow から
+     も MS-IME で悲しい。だけど、anthy って cygwin で make できるなぁ。
 
- (2) Zaurus $B$N(B Emacs $B$G(B FreeWnn $B$r(B egg-wnn $B$G;H$C$F$$$k$1$I!"$A$g$C$H<-=q(B
-     $B$rA}$d$9$H%a%b%j$O?)$&$o!"CY$/$J$k$o$G!"BgJQ!#(B
+ (2) Zaurus の Emacs で FreeWnn を egg-wnn で使っているけど、ちょっと辞書
+     を増やすとメモリは食うわ、遅くなるわで、大変。
 
- (3) Anthy $BIUB0$N(B anthy.el $B$G$bNI$$$N$@$1$I!"$I$&$7$F$b;X$HF,$,(B egg $B$JF0$-(B
-     $B$N$^$^$@!#(B
+ (3) Anthy 付属の anthy.el でも良いのだけど、どうしても指と頭が egg な動き
+     のままだ。
 
- $B$H$$$&LdBj$KG:$^$5$l$F$$$^$7$?!#F1$8G:$_$r$*;}$A$NJ}$K$OM-8z$@$H;W$$$^$9!#(B
- $B$^$?!"(Begg-remix(*4) $B$HAH$_9g$o$;$F$b=gD4$KF0$$$F$$$^$9!#(B
+ という問題に悩まされていました。同じ悩みをお持ちの方には有効だと思います。
+ また、egg-remix(*4) と組み合わせても順調に動いています。
 
- (*1) shirai@meadowy.org <= $BMWK>(B/$B%P%0Js9pEy$O$3$A$i$^$G$I$&$>(B
+ (*1) shirai@meadowy.org <= 要望/バグ報告等はこちらまでどうぞ
  (*2) http://anthy.sourceforge.jp/
  (*3) http://www.m17n.org/tamago/
  (*4) http://www.extipl.jp/~payashi/remix/
 
 
-2. anthy $B$N%$%s%9%H!<%k(B
- http://anthy.sourceforge.jp/ $B$+$i$I$&$>!#(B2005$BG/(B02$B7n(B28$BF|(B $B8=:_$G$O(B
- anthy-6131 $B$KBP1~$7$F$$$^$9!#(Banthy-5900($B$^$?$O$=$l0JA0(B) $B$G$bF0:n$9$k$H;W(B
- $B$o$l$^$9$,!"<-=qEPO?;~$K%5%]!<%H$7$F$$$kIJ;l$K%_%9%^%C%A$,@8$8$k$?$a!"(B
- egg-anthy $B$,%5%]!<%H$7$F$$$k$9$Y$F$NIJ;l$r;H$&$3$H$O$G$-$^$;$s!#(B
+2. anthy のインストール
+ http://anthy.sourceforge.jp/ からどうぞ。2005年02月28日 現在では
+ anthy-6131 に対応しています。anthy-5900(またはそれ以前) でも動作すると思
+ われますが、辞書登録時にサポートしている品詞にミスマッチが生じるため、
+ egg-anthy がサポートしているすべての品詞を使うことはできません。
 
 
-3. Tamago Ver.4 + $B<+2H@=(B egg-anthy $B$N%$%s%9%H!<%k(B
- $B%j%j!<%9HG$N(B Tamago 4.0.6 $B$G$OF0:n$7$^$;$s$N$GCm0U$7$F$/$@$5$$!#(B
+3. Tamago Ver.4 + 自家製 egg-anthy のインストール
+ リリース版の Tamago 4.0.6 では動作しませんので注意してください。
 
-3.1 $B$^$@(B Tamago $B$r%$%s%9%H!<%k$7$F$$$J$$?M(B
-(1) CVS Head $B$J(B Tamago $B$r(B http://cvs.m17n.org/viewcvs/tamago/tamago/ $B$J$I(B
-   $B$+$iLc$C$F$-$^$9!#(BTamago Ver.4 $B$O$$$m$$$m$J%Q%C%A$,=P$F$$$k$N$G!"I,MW$J(B
-   $B?M$O5y$C$F$/$@$5$$!#(Bhttp://www.asahi-net.or.jp/~mu6k-ski/tamago.html $B$b(B
-   $B;29M$K$J$k$G$7$g$&!#(B
+3.1 まだ Tamago をインストールしていない人
+(1) CVS Head な Tamago を http://cvs.m17n.org/viewcvs/tamago/tamago/ など
+   から貰ってきます。Tamago Ver.4 はいろいろなパッチが出ているので、必要な
+   人は漁ってください。http://www.asahi-net.or.jp/~mu6k-ski/tamago.html も
+   参考になるでしょう。
 
-(2) $BF1:-$N(B anthy.el, anthyipc.el $B$r>e5-$N(B tamago $B0l<0$rE83+$7$?(B
-    tamago/egg/ $B0J2<$NF1L>$N%U%!%$%k$K>e=q$-$7$^$9!#(B
+(2) 同梱の anthy.el, anthyipc.el を上記の tamago 一式を展開した
+    tamago/egg/ 以下の同名のファイルに上書きします。
 
-(3) $BIaDL$K(B tamago $B$r%$%s%9%H!<%k$7$^$9!#(B
+(3) 普通に tamago をインストールします。
 
-3.2 $B$9$G$K(B Tamago $B$r%$%s%9%H!<%k$7$F$$$k?M(B
- egg-anthy $BIU$-$N%P!<%8%g%s$+H]$+$G!"J}K!$,JQ$o$j$^$9!#(B
+3.2 すでに Tamago をインストールしている人
+ egg-anthy 付きのバージョンか否かで、方法が変わります。
 
-3.2.1 "C-uC-\" $B$G(B "japanese-egg-anthy" $B$,=P$F$3$J$$?M(B
- 2.1 $B$r;29M$K$7$F!"0l$+$i(B Tamago $B$r%$%s%9%H!<%k$7$F$/$@$5$$!#(B
+3.2.1 "C-uC-\" で "japanese-egg-anthy" が出てこない人
+ 2.1 を参考にして、一から Tamago をインストールしてください。
 
-3.2.2 "C-uC-\" $B$G(B "japanese-egg-anthy" $B$,=P$F$/$k?M(B
- ($B4D6-$K$h$C$F0c$&$H;W$$$^$9$,(B)/usr/local/local/share/emacs/site-lisp/egg/egg
- $B0J2<$KF1:-$N(B anthy.el, anthyipc.el $B$r%3%T!<$7$F(B byte-compile $B$7$F$/$@$5$$!#(B
+3.2.2 "C-uC-\" で "japanese-egg-anthy" が出てくる人
+ (環境によって違うと思いますが)/usr/local/local/share/emacs/site-lisp/egg/egg
+ 以下に同梱の anthy.el, anthyipc.el をコピーして byte-compile してください。
 
 
-4. $B;H$$J}(B
- $BIaDL$K(B C-uC-\ $B$G(B "japanese-egg-anthy" $B$rA*Br$9$l$P(B OK $B$G$9!#(B
+4. 使い方
+ 普通に C-uC-\ で "japanese-egg-anthy" を選択すれば OK です。
 
  (setq default-input-method "japanese-egg-anthy")
 
- $B$H$+(B ~/.emacs $B$K=q$$$F$*$1$P$9$0(B egg-anthy $B$,;H$($k>uBV$K$J$j$^$9!#(B
+ とか ~/.emacs に書いておけばすぐ egg-anthy が使える状態になります。
 
 
-5. $B<+2H@=(B egg-anthy $B$NCf?H(B
-  http://anthy.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Emacs%A4%AB%A4%E9 $B$N%Q%C(B
-  $B%A$r;H$o$;$F$$$?$@$-$^$7$?!#$@$1$I$3$l$@$1$@$H!"JQ49$7$F(B C-h $B$G<h$j>C$7$C(B
-  $B$F(B 16$B2s$d$C$?$iGKC>$7$^$9$h$M!#(B
+5. 自家製 egg-anthy の中身
+  http://anthy.sourceforge.jp/cgi-bin/hiki/hiki.cgi?Emacs%A4%AB%A4%E9 のパッ
+  チを使わせていただきました。だけどこれだけだと、変換して C-h で取り消しっ
+  て 16回やったら破綻しますよね。
 
-5.1 $B@)8B;v9`(B
-(1) Tamago Ver.4 $B$NFCD'$N0l$D$G$"$k%^%k%A%U%'%s%9$OF1;~$K(B 16$B8D$^$G$7$+%*!<(B
-    $B%W%s$G$-$^$;$s!#(B
+5.1 制限事項
+(1) Tamago Ver.4 の特徴の一つであるマルチフェンスは同時に 16個までしかオー
+    プンできません。
 
- $B$3$l$O!"(Banthy-agent $B$r(B -egg $BIU$-$GF0$+$7$?>l9g$N(B anthy-agent $B$N@)8B;v9`$G(B
- $B$9!#(B15$B8D$r1[$($k$H%7%D%3%/%a%C%;!<%8$r=P$7$^$9!#<+J,$G2~B$$9$l$P$=$l0J>e(B
- $B$N%U%'%s%9$r%*!<%W%s$G$-$^$9$,!"DL>oI,MW$J$$$H;W$$$^$9!#$b$7!"4V0c$C$F(B
- 17$B8D0J>e$N%U%'%s%9$r%*!<%W%s$7$FGKC>$7$?$H$-$O!"(B
- "M-x anthy-egg-recover" $B$HBG$C$F$/$@$5$$!#(B
+ これは、anthy-agent を -egg 付きで動かした場合の anthy-agent の制限事項で
+ す。15個を越えるとシツコクメッセージを出します。自分で改造すればそれ以上
+ のフェンスをオープンできますが、通常必要ないと思います。もし、間違って
+ 17個以上のフェンスをオープンして破綻したときは、
+ "M-x anthy-egg-recover" と打ってください。
 
-(2) egg-abort-conversion(), egg-decide-before-point() $B$NFs$D$N4X?t$K(B
-    advice $B$r$+$1$F$$$^$9$N$G!"Cm0U$7$F$/$@$5$$!#(B
+(2) egg-abort-conversion(), egg-decide-before-point() の二つの関数に
+    advice をかけていますので、注意してください。
 
- tamago $BK\BN$K<j$r2C$($?$/$J$$$?$a!"(Badvice $B$GF($2$^$7$?!#(B
+ tamago 本体に手を加えたくないため、advice で逃げました。
 
-5.2 $B5$$N$-$$$F$$$kE@(B
-(1) Anthy $BIUB0$N(B anthy.el $B$HF1;~$K;HMQ$9$k$3$H$,$G$-$^$9!#(B
+5.2 気のきいている点
+(1) Anthy 付属の anthy.el と同時に使用することができます。
 
-  $B$=$N$H$-$O!"(B
+  そのときは、
  (locate-library "anthy")
  => "/usr/local/share/emacs/site-lisp/anthy/anthy.elc"
- $B$H$$$&$U$&$K!"(BAnthy $BIUB0$N(B anthy.el $B$,(B load-path $B$N$O$8$a$K=P$F$/$k$h$&$K(B
- $BD4@0$7$F$/$@$5$$!#(B
+ というふうに、Anthy 付属の anthy.el が load-path のはじめに出てくるように
+ 調整してください。
 
  (locate-libraries "anthy")
  => ("/usr/local/share/emacs/site-lisp/anthy/anthy.elc"
      "/usr/local/share/emacs/site-lisp/egg/egg/anthy.elc")
- $B$H$J$l$P(B OK $B$G$9!#(B
+ となれば OK です。
 
-(2) anthy-6131 $BIUB0$N(B anthy-dic-tool $B$,%5%]!<%H$7$F$$$kIJ;l$O$9$Y$F(B egg $B$+(B
-    $B$iEPO?$9$k$3$H$,=PMh$^$9!#(B
+(2) anthy-6131 付属の anthy-dic-tool がサポートしている品詞はすべて egg か
+    ら登録することが出来ます。
 
-  $B:#8e(B anthy-dic-tool $B$,%5%]!<%H$9$kIJ;l$,A}$($?$H$-$NBP1~$O$=$N$H$-$K9M$((B
-  $B$^$9$,!"(B/usr/local/share/anthy/typetab $B$r<+F0$G2r@O$7$J$$$H$@$a$+$J$!!#!#!#(B
+  今後 anthy-dic-tool がサポートする品詞が増えたときの対応はそのときに考え
+  ますが、/usr/local/share/anthy/typetab を自動で解析しないとだめかなぁ。。。
 
-  $B$^$?!"F0;l$NEPO?$OJJ$,$"$j$^$9!#Nc$($P!V>F$-9~$`!W$rEPO?$9$k$H$-$O!"(B
-  $B4A;z(B:$B!X=q$-9~!Y!"FI$_(B:$B!X$d$-$3!Y!"3hMQ(B:$B!X%^9T8^CJ3hMQ!Y(B
-  $B$NMM$K3hMQ8lHx$r30$7$FEPO?$7$^$9!#(B
+  また、動詞の登録は癖があります。例えば「焼き込む」を登録するときは、
+  漢字:『書き込』、読み:『やきこ』、活用:『マ行五段活用』
+  の様に活用語尾を外して登録します。
 
-(3) $B%*%j%8%J%k$N(B egg-anthy $B$,BP1~$7$F$$$J$+$C$?!"$R$i$,$JJQ49(B(M-h)$B!"%+%?%+(B
-  $B%JJQ49(B(M-k) $B$KBP1~$7$F$$$^$9!#(B
+(3) オリジナルの egg-anthy が対応していなかった、ひらがな変換(M-h)、カタカ
+  ナ変換(M-k) に対応しています。
 
 
-6. UTF-8 $BBP1~(B
- $B:G6a$N(B Anthy $B$G$O!"(BAnthy $BFbIt$,(B UNICODE $B2=$7!"0BDjHG$G$O(B anthy-8700 $B0J9_(B
- $B$N(B anthy-agent, anthy-dic-tool $B$G$b(B "--utf8" $B$H$$$&%*%W%7%g%s$r;H$($P(B
- UTF-8 $B$GDL?.$9$k$3$H$,$G$-$^$9!#$*;H$$$N(B Emacs $B$,(B Emacs-22 $B$^$?$O(B
- Emacs-21 + Mule-UCS $B$N$H$-$O!"(BAnthy $B$H(B UTF-8 $B$GDL?.$9$k$3$H$,$G$-$^$9!#(B
+6. UTF-8 対応
+ 最近の Anthy では、Anthy 内部が UNICODE 化し、安定版では anthy-8700 以降
+ の anthy-agent, anthy-dic-tool でも "--utf8" というオプションを使えば
+ UTF-8 で通信することができます。お使いの Emacs が Emacs-22 または
+ Emacs-21 + Mule-UCS のときは、Anthy と UTF-8 で通信することができます。
 
-6.1 $B@_Dj(B
- egg-anthy $B$r;H$&A0$K(B
+6.1 設定
+ egg-anthy を使う前に
 
  (setq anthy-egg-use-utf8 t)
 
- $B$H$7$^$9!#%G%U%)%k%H$O(B nil $B$G$9!#(B
+ とします。デフォルトは nil です。
 
- $B$^$?!"(Bleim $B$KEPO?$5$l$F$$$k(B egg-anthy $B$N(B input-method $BL>$,I8=`$N(B
- "japanese-egg-anthy" $B$G$J$$$H$-!"$^$?$OJ#?t;}$D$H$-$O!"(B
- anthy-egg-input-method-list $B$K0J2<$N$h$&$K@_Dj$7$^$9!#(B
+ また、leim に登録されている egg-anthy の input-method 名が標準の
+ "japanese-egg-anthy" でないとき、または複数持つときは、
+ anthy-egg-input-method-list に以下のように設定します。
 
  (setq anthy-egg-input-method-list '("japanese-egg-anthy" "anthy"))
 
-6.2 $BCm0UE@(B $B$=$N0l(B
- $BF|K\8l(B($B!)(B)$B0J30$NC18l$r(B Anthy $B$N<-=q$KEPO?2DG=$K$9$kE@$H!"F|K\8l(B($B!)(B)$B0J30$r(B
- $B%j!<%8%g%s$K;XDj$7$F$N(B "M-x egg-convert-region" $B$G%(%i!<$r=P$5$J$$$h$&$K(B
- $B$9$k$?$a!"(Begg-toroku-bunsetsu, egg-toroku-region, egg-convert-region,
- egg-separate-languages $B$N3F4X?t$K(B advice $B$r$+$1$F$$$^$9!#(B
+6.2 注意点 その一
+ 日本語(？)以外の単語を Anthy の辞書に登録可能にする点と、日本語(？)以外を
+ リージョンに指定しての "M-x egg-convert-region" でエラーを出さないように
+ するため、egg-toroku-bunsetsu, egg-toroku-region, egg-convert-region,
+ egg-separate-languages の各関数に advice をかけています。
 
- $B$3$N5!G=$O(B
+ この機能は
 
  (setq anthy-egg-use-chinese-korean-server t)
 
- $B$H$9$k$HL58z$K$J$j!"(BkWnn, cWnn $B$H(B utf-8 $B$J(B Anthy $B$,6&B8$G$-$^$9!#%G%U%)%k(B
- $B%H$O(B nil $B$G$9!#(B
+ とすると無効になり、kWnn, cWnn と utf-8 な Anthy が共存できます。デフォル
+ トは nil です。
 
-6.3 $BCm0UE@(B $B$=$NFs(B
- UTF-8 $B$rMQ$$$F(B Anthy $B$+$iJ8;z$,=P$FMh$?$H$-$K(B Emacs $B$,$=$NJ8;z$,$I$N(B
- charset set $B$K3d$jEv$F$k$+$O!"$=$N(B Emacs $B<!Bh$G$9!#Nc$($P!"(BMule-UCS $B$r;H$C(B
- $B$F$$$F$b(B Emacs-22 $B$N(B utf-translate-cjk-mode() $B$r;H$C$F$b!"%G%U%)%k%H$G$O(B
- $B!X&A!Y$,(B japanese-jisx0208 $B$G$O$J$/(B greek-iso8859-7 $B$H$7$F07$o$l$^$9!#(B
+6.3 注意点 その二
+ UTF-8 を用いて Anthy から文字が出て来たときに Emacs がその文字がどの
+ charset set に割り当てるかは、その Emacs 次第です。例えば、Mule-UCS を使っ
+ ていても Emacs-22 の utf-translate-cjk-mode() を使っても、デフォルトでは
+ 『α』が japanese-jisx0208 ではなく greek-iso8859-7 として扱われます。
 
- $B$*$=$i$/BgDq$N?M$O(B japanese-jisx0208 $B$H$7$F07$C$F$[$7$$$H;W$o$l$k$N$G!"0J(B
- $B2<$N$h$&$KJ8;z%;%C%HJQ99$N@_Dj$,I,MW$G$9!#$J$*!"2<5-$NNc$O$o$?$7$N$b$N$G!"(B
- $B4V0c$C$F$$$k2DG=@-$b$"$j$^$9$7!"3F?M$N<qL#$NLdBj$b$"$j$^$9$N$G!"$4;29M$^(B
- $B$G$K$I$&$>!#(B
+ おそらく大抵の人は japanese-jisx0208 として扱ってほしいと思われるので、以
+ 下のように文字セット変更の設定が必要です。なお、下記の例はわたしのもので、
+ 間違っている可能性もありますし、各人の趣味の問題もありますので、ご参考ま
+ でにどうぞ。
 
 (cond
  ((featurep 'jisx0213)
-  ;; Mule-UCS + JISX0213 $B$N@_Dj(B
+  ;; Mule-UCS + JISX0213 の設定
   (setq unicode-basic-translation-charset-order-list
 	'(ascii
-	  japanese-jisx0208	;; $B0\F0(B
-	  japanese-jisx0213-1	;; $B0\F0(B
-	  japanese-jisx0213-2	;; $B0\F0(B
-	  japanese-jisx0212	;; $B0\F0(B
+	  japanese-jisx0208	;; 移動
+	  japanese-jisx0213-1	;; 移動
+	  japanese-jisx0213-2	;; 移動
+	  japanese-jisx0212	;; 移動
 	  latin-iso8859-1
 	  latin-iso8859-2
 	  latin-iso8859-3
@@ -176,7 +176,7 @@
 	  latin-iso8859-14
 	  latin-iso8859-15
 	  ipa
-	  ;; $B$b$H$O$3$3(B
+	  ;; もとはここ
 	  chinese-gb2312
 	  chinese-cns11643-1
 	  chinese-cns11643-2
@@ -204,11 +204,11 @@
 	  mule-ucs-unicode-multichar))
   (un-define-change-charset-order))
  ((featurep 'un-define)
-  ;; Mule-UCS $B$N@_Dj(B
+  ;; Mule-UCS の設定
   (setq unicode-basic-translation-charset-order-list
 	'(ascii
-	  japanese-jisx0208	;; $B0\F0(B
-	  japanese-jisx0212	;; $B0\F0(B
+	  japanese-jisx0208	;; 移動
+	  japanese-jisx0212	;; 移動
 	  latin-iso8859-1
 	  latin-iso8859-2
 	  latin-iso8859-3
@@ -220,7 +220,7 @@
 	  latin-iso8859-14
 	  latin-iso8859-15
 	  ipa
-	  ;; $B$b$H$O$3$3(B
+	  ;; もとはここ
 	  chinese-gb2312
 	  chinese-cns11643-1
 	  chinese-cns11643-2
@@ -248,7 +248,7 @@
 	  mule-ucs-unicode-multichar))
   (un-define-change-charset-order)))
 
-;; Emacs-22 $B$N(B utf-translate-cjk-mode $B$N@_DjNc(B (mule-ja ML $B$h$j(B)
+;; Emacs-22 の utf-translate-cjk-mode の設定例 (mule-ja ML より)
 (when (fboundp 'utf-translate-cjk-set-unicode-range)
   (utf-translate-cjk-set-unicode-range
    '((?\x2e80 . ?\xd7a3)
@@ -272,48 +272,48 @@
      (?\x2600 . ?\x26ff))))
 
 
-$B!|JQ99MzNr(B
- 2005$BG/(B 2$B7n(B28$BF|(B
-  $B?75,(B
+●変更履歴
+ 2005年 2月28日
+  新規
 
- 2005$BG/(B 3$B7n(B 9$BF|(B
- * egg/anthyipc.el (anthyipc-get-greeting): anthy-agent $B$N(B '6300d' $B7A<0$N(B
-   $B%P!<%8%g%sHV9f$KBP1~!#(B
+ 2005年 3月 9日
+ * egg/anthyipc.el (anthyipc-get-greeting): anthy-agent の '6300d' 形式の
+   バージョン番号に対応。
 
- 2005$BG/(B 5$B7n(B10$BF|(B
- * $BA02s$NJQ99$,;W$$$C$-$j4V0c$C$F$$$?(B ^^;;; $B$N$G=$@5!#(B
+ 2005年 5月10日
+ * 前回の変更が思いっきり間違っていた ^^;;; ので修正。
 
- 2005$BG/(B 8$B7n(B 4$BF|(B
- * $BM9JXHV9f$r4JC1$K0z$/$?$a$NBP1~(B(add-hook)$B!#(B
+ 2005年 8月 4日
+ * 郵便番号を簡単に引くための対応(add-hook)。
 
- 2006$BG/(B 2$B7n(B13$BF|(B
- * $BC18lEPO?$7$?8l6g$K%9%Z!<%9$,4^$^$l$F$$$k$HGKC>$7$F$$$?$N$r=$@5!#(B
-  => Anthy-7100b $B$GF0:n3NG'!#$=$l0J9_(B($B8=;~E@$G$O(B Anthy-7411)$B$O(B Anthy $BB&$,(B
-     $B$*$+$7$J46$8$J$N$G!"K\BNB&$N=$@5BT$A!#(B
- * $BM9JXHV9fBP1~$O(B Anthy-7100b $B0J9_K\BN$K4^$^$l$?$N$G0UL#$,L5$/$J$C$?$?$a30(B
-   $B$7$?!#(B
+ 2006年 2月13日
+ * 単語登録した語句にスペースが含まれていると破綻していたのを修正。
+  => Anthy-7100b で動作確認。それ以降(現時点では Anthy-7411)は Anthy 側が
+     おかしな感じなので、本体側の修正待ち。
+ * 郵便番号対応は Anthy-7100b 以降本体に含まれたので意味が無くなったため外
+   した。
 
- 2006$BG/(B 5$B7n(B19$BF|(B
- * "nihonngoto[SPC][RET][SPC]qalphabet[SPC][C-g]nokonnzai[SPC][RET]" $BBP1~!#(B
-   anthyipc-read-string-type1(), anthyipc-read-string-type2() $B$rJQ99!#(B
+ 2006年 5月19日
+ * "nihonngoto[SPC][RET][SPC]qalphabet[SPC][C-g]nokonnzai[SPC][RET]" 対応。
+   anthyipc-read-string-type1(), anthyipc-read-string-type2() を変更。
 
- 2006$BG/(B 5$B7n(B24$BF|(B
- * $BA02s$NBP1~$N=$@5!#(Banthyipc-read-string-type1() $B$N=q$-D>$7!#(B
+ 2006年 5月24日
+ * 前回の対応の修正。anthyipc-read-string-type1() の書き直し。
 
- 2006$BG/(B 5$B7n(B25$BF|(B
- * $B$h$/$h$/9M$($?$i!"(Bsplit-string $B$N5sF0$,(B Emacs-22 $B$H(B Emacs-20,21 $B$H$O0c(B
-   $B$&$3$H$r;W$$=P$7$?$N$G!"BP1~!#(B
+ 2006年 5月25日
+ * よくよく考えたら、split-string の挙動が Emacs-22 と Emacs-20,21 とは違
+   うことを思い出したので、対応。
 
- 2006$BG/(B 6$B7n(B 6$BF|(B
- * $BF0;l$NC18lEPO?$r4V0c$C$F$$$?$N$G=$@5!#3hMQ7A$r(B anthy-dic-tool $B$KEO$7$F(B
-   $B$$$J$+$C$?$,!"$I$&$d$i:G=i$+$i$N$h$&$@!#(B
- * $BA02s$N=$@5$G4V0c$(8+IU$1!#FsJ8@a$a0J9_$r$R$i$,$J!"%+%?%+%J$K$G$-$J$+$C$?!#(B
+ 2006年 6月 6日
+ * 動詞の単語登録を間違っていたので修正。活用形を anthy-dic-tool に渡して
+   いなかったが、どうやら最初からのようだ。
+ * 前回の修正で間違え見付け。二文節め以降をひらがな、カタカナにできなかった。
 
- 2007$BG/(B 4$B7n(B19$BF|(B
- * Anthy $B$N(B utf-8 $BBP1~!#(BReadme $B$NDI5-!#(B
- * elisp $B$N(B Version $B$NIU$1J}$rJQ$($?!#(B
+ 2007年 4月19日
+ * Anthy の utf-8 対応。Readme の追記。
+ * elisp の Version の付け方を変えた。
 
-$B0J>e!*(B
+以上！
 
 
 Local Variables:

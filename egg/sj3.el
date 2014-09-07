@@ -54,53 +54,53 @@
 
 (egg-add-message
  '((Japanese
-    (sj3-register-1 "$BEPO?<-=qL>(B:")
-    (sj3-register-2 "$BIJ;lL>(B"))))
+    (sj3-register-1 "登録辞書名:")
+    (sj3-register-2 "品詞名"))))
 
 (defvar sj3-hinshi-menu
-  '(("$BL>;l(B"	.
-     (menu "$BIJ;l(B:$BL>;l(B:"
-	   (("$BL>;l(B"		. 1)
-	    ("$BL>;l(B($B$*!D(B)"	. 2)
-	    ("$BL>;l(B($B$4!D(B)"	. 3)
-	    ("$BL>;l(B($B!DE*(B/$B2=(B)"	. 4)
-	    ("$BL>;l(B($B$*!D$9$k(B)"	. 5)
-	    ("$BL>;l(B($B!D$9$k(B)"	. 6)
-	    ("$BL>;l(B($B$4!D$9$k(B)"	. 7)
-	    ("$BL>;l(B($B!D$J(B/$B$K(B)"	. 8)
-	    ("$BL>;l(B($B$*!D$J(B/$B$K(B)"	. 9)
-	    ("$BL>;l(B($B$4!D$J(B/$B$K(B)"	. 10)
-	    ("$BL>;l(B($BI{;l(B)"	. 11))))
-    ("$BBeL>;l(B"	. 12)
-    ("$BID;z(B"	. 21)
-    ("$BL>A0(B"	. 22)
-    ("$BCOL>(B"	. 24)
-    ("$B8)(B/$B6hL>(B"	. 25)
-    ("$BF0;l(B"	.
-     (menu "$BIJ;l(B:$BF0;l(B:"
-	   (("$B%5JQ8l44(B"		. 80)
-	    ("$B%6JQ8l44(B"		. 81)
-	    ("$B0lCJITJQ2=It(B"	. 90)
-	    ("$B%+9T8^CJ8l44(B"	. 91)
-	    ("$B%,9T8^CJ8l44(B"	. 92)
-	    ("$B%59T8^CJ8l44(B"	. 93)
-	    ("$B%?9T8^CJ8l44(B"	. 94)
-	    ("$B%J9T8^CJ8l44(B"	. 95)
-	    ("$B%P9T8^CJ8l44(B"	. 96)
-	    ("$B%^9T8^CJ8l44(B"	. 97)
-	    ("$B%i9T8^CJ8l44(B"	. 98)
-	    ("$B%o9T8^CJ8l44(B"	. 99))))
-    ("$BO"BN;l(B"		. 26)
-    ("$B@\B3;l(B"		. 27)
-    ("$B=u?t;l(B"		. 29)
-    ("$B?t;l(B"		. 30)
-    ("$B@\F,8l(B"		. 31)
-    ("$B@\Hx8l(B"		. 36)
-    ("$BI{;l(B"		. 45)
-    ("$BI{;l(B2"		. 46)
-    ("$B7AMF;l8l44(B"	. 60)
-    ("$B7AMFF0;l8l44(B"	. 71)
-    ("$BC14A;z(B"		. 189))
+  '(("名詞"	.
+     (menu "品詞:名詞:"
+	   (("名詞"		. 1)
+	    ("名詞(お…)"	. 2)
+	    ("名詞(ご…)"	. 3)
+	    ("名詞(…的/化)"	. 4)
+	    ("名詞(お…する)"	. 5)
+	    ("名詞(…する)"	. 6)
+	    ("名詞(ご…する)"	. 7)
+	    ("名詞(…な/に)"	. 8)
+	    ("名詞(お…な/に)"	. 9)
+	    ("名詞(ご…な/に)"	. 10)
+	    ("名詞(副詞)"	. 11))))
+    ("代名詞"	. 12)
+    ("苗字"	. 21)
+    ("名前"	. 22)
+    ("地名"	. 24)
+    ("県/区名"	. 25)
+    ("動詞"	.
+     (menu "品詞:動詞:"
+	   (("サ変語幹"		. 80)
+	    ("ザ変語幹"		. 81)
+	    ("一段不変化部"	. 90)
+	    ("カ行五段語幹"	. 91)
+	    ("ガ行五段語幹"	. 92)
+	    ("サ行五段語幹"	. 93)
+	    ("タ行五段語幹"	. 94)
+	    ("ナ行五段語幹"	. 95)
+	    ("バ行五段語幹"	. 96)
+	    ("マ行五段語幹"	. 97)
+	    ("ラ行五段語幹"	. 98)
+	    ("ワ行五段語幹"	. 99))))
+    ("連体詞"		. 26)
+    ("接続詞"		. 27)
+    ("助数詞"		. 29)
+    ("数詞"		. 30)
+    ("接頭語"		. 31)
+    ("接尾語"		. 36)
+    ("副詞"		. 45)
+    ("副詞2"		. 46)
+    ("形容詞語幹"	. 60)
+    ("形容動詞語幹"	. 71)
+    ("単漢字"		. 189))
   "Menu data for a hinshi (a part of speech) selection.")
 
 (defun sj3-hinshi-name (id &optional menu alist)
@@ -326,17 +326,17 @@ Don't specify the optional arguments in normal use."
       (setq ret (sj3rpc-open-stdy proc name))
       (if (= ret 0)
 	  (setq trying nil)
-	(message "$B3X=,%U%!%$%k(B(%s)$B$,$"$j$^$;$s(B" name)
+	(message "学習ファイル(%s)がありません" name)
 	(if (/= ret (SJ3-const FileNotExist))
 	    (egg-error "Fatal1")	; XXX
 	  (if (and (y-or-n-p
-		    (format "$B3X=,%U%!%$%k(B(%s)$B$,$"$j$^$;$s!#:n$j$^$9$+(B? "
+		    (format "学習ファイル(%s)がありません。作りますか? "
 			    name))
 		   (sj3rpc-make-directory proc
 					  (file-name-directory name))
 		   ;; ignore error
 		   (= (sj3rpc-make-stdy proc name) 0))
-	      (message "$B3X=,%U%!%$%k(B(%s)$B$r:n$j$^$7$?(B" name)
+	      (message "学習ファイル(%s)を作りました" name)
 	    (egg-error "Fatal2")))))))	; XXX
 
 (defun sj3-open-dictionary (proc name passwd)
@@ -346,15 +346,15 @@ Don't specify the optional arguments in normal use."
       (setq ret (sj3rpc-open-dictionary proc name passwd))
       (if (>= ret 0)
 	  (setq trying nil)
-	(message "$B<-=q%U%!%$%k(B(%s)$B$,$"$j$^$;$s(B" name)
+	(message "辞書ファイル(%s)がありません" name)
 	(setq ret (- ret))		; Get error code.
 	(if (/= ret (SJ3-const FileNotExist))
 	    (egg-error "Fatal3 %d" ret)	; XXX
 	  (if (and (y-or-n-p
-		    (format "$B<-=q%U%!%$%k(B(%s)$B$,$"$j$^$;$s!#:n$j$^$9$+(B? "
+		    (format "辞書ファイル(%s)がありません。作りますか? "
 			    name))
 		   (= (sj3rpc-make-dictionary proc name) 0))
-	      (message "$B<-=q%U%!%$%k(B(%s)$B$r:n$j$^$7$?(B" name)
+	      (message "辞書ファイル(%s)を作りました" name)
 	    (egg-error "Fatal4")))))	; XXX
     ret))
 

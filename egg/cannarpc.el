@@ -294,7 +294,7 @@
 	bunsetsu-list))))
 
 (defun cannarpc-set-kugiri-changed (env yomi-length bunsetsu-pos)
-  ;; yomi-length -2$B!DJ8@a=L$a(B -1$B!DJ8@a?-$P$7(B
+  ;; yomi-length -2…文節縮め -1…文節伸ばし
   (let* ((i bunsetsu-pos)
 	 converted bunsetsu-list bl)
     (cannarpc-call-with-environment env (dummy result)

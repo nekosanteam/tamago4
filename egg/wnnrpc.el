@@ -36,7 +36,7 @@
 (eval-when-compile
   (require 'egg-com)
   (defmacro wnn-file-string ()
-    (string-as-unibyte (decode-coding-string "$B#W#n#n$N%U%!%$%k(B" 'euc-jp)))
+    (string-as-unibyte (decode-coding-string "Ｗｎｎのファイル" 'euc-jp)))
   (defmacro wnn-const (c)
     "Macro for WNN constants."
     (cond ((eq c 'JS_VERSION)               0)
@@ -155,7 +155,7 @@
 	  ((eq c 'WNN_FT_DICT_FILE)         1)
 	  ((eq c 'WNN_FT_HINDO_FILE)        2)
 	  ((eq c 'WNN_FILE_STRING)       (encode-coding-string
-					  "$B#W#n#n$N%U%!%$%k(B" 'euc-jp))
+					  "Ｗｎｎのファイル" 'euc-jp))
 	  ((eq c 'WNN_FILE_STRING_LEN)     16)
 	  ((eq c 'WNN_PASSWD_LEN)          16)
 	  ((eq c 'WNN_HOST_LEN)            16)
@@ -204,86 +204,56 @@
   '((Japanese .
      [
       nil
-      "$B%U%!%$%k$,B8:_$7$^$;$s(B"
+      "ファイルが存在しません"
       nil
-      "$B%a%b%j(B allocation $B$G<:GT$7$^$7$?(B"
+      "メモリ allocation で失敗しました"
       nil
-      "$B<-=q$G$O$"$j$^$;$s(B"
-      "$BIQEY%U%!%$%k$G$O$"$j$^$;$s(B"
-      "$BIUB08l%U%!%$%k$G$O$"$j$^$;$s(B"
+      "辞書ではありません"
+      "頻度ファイルではありません"
+      "付属語ファイルではありません"
       nil
-      "$B<-=q%F!<%V%k$,0lGU$G$9(B"
-      "$BIQEY%U%!%$%k$,;XDj$5$l$?<-=q$NIQEY%U%!%$%k$G$O$"$j$^$;$s(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$B%U%!%$%k$,%*!<%W%s$G$-$^$;$s(B"
-      "$B@5$7$$IQEY%U%!%$%k$G$O$"$j$^$;$s(B"
-      "$B@5$7$$IUB08l%U%!%$%k$G$O$"$j$^$;$s(B"
-      "$BIUB08l$N8D?t(B, $B%Y%/%?D9$5$J$I$,B?2a$.$^$9(B"
-      "$B$=$NHV9f$N<-=q$O;H$o$l$F$$$^$;$s(B"
-      nil
-      nil
-      nil
-      "$BIUB08l%U%!%$%k$NFbMF$,@5$7$/$"$j$^$;$s(B"
-      "$B5?;wIJ;lHV9f$,0[>o$G$9(B(hinsi.data $B$,@5$7$/$"$j$^$;$s(B)"
-      "$BL$Dj5A$NIJ;l$,A0C<IJ;l$H$7$FDj5A$5$l$F$$$^$9(B"
-      "$BIUB08l%U%!%$%k$,FI$_9~$^$l$F$$$^$;$s(B"
-      nil
-      nil
-      "$B<-=q$N%(%$%s%H%j$,B?2a$.$^$9(B"
-      "$BJQ49$7$h$&$H$9$kJ8;zNs$,D92a$.$^$9(B"
-      "$BIUB08l2r@ONN0h$,ITB-$7$F$$$^$9(B"
-      nil
-      "$B<!8uJdNN0h$,ITB-$7$F$$$^$9(B"
-      "$B8uJd$,(B 1 $B$D$b:n$l$^$;$s$G$7$?(B"
-      nil
-      nil
-      nil
-      nil
-      "$BFI$_$,D92a$.$^$9(B"
-      "$B4A;z$,D92a$.$^$9(B"
-      "$B;XDj$5$l$?<-=q$OEPO?2DG=$G$O$"$j$^$;$s(B"
-      "$BFI$_$ND9$5$,(B 0 $B$G$9(B"
-      "$B;XDj$5$l$?<-=q$O5U0z$-2DG=$G$O$"$j$^$;$s(B"
-      "$B%j!<%I%*%s%j!<$N<-=q$KEPO?(B/$B:o=|$7$h$&$H$7$^$7$?(B"
-      "$B4D6-$KB8:_$7$J$$<-=q$KEPO?$7$h$&$H$7$^$7$?(B"
-      nil
-      nil
-      "$B%j!<%I%*%s%j!<$NIQEY$rJQ99$7$h$&$H$7$^$7$?(B"
-      "$B;XDj$5$l$?C18l$,B8:_$7$^$;$s(B"
+      "辞書テーブルが一杯です"
+      "頻度ファイルが指定された辞書の頻度ファイルではありません"
       nil
       nil
       nil
       nil
       nil
+      "ファイルがオープンできません"
+      "正しい頻度ファイルではありません"
+      "正しい付属語ファイルではありません"
+      "付属語の個数, ベクタ長さなどが多過ぎます"
+      "その番号の辞書は使われていません"
+      nil
+      nil
+      nil
+      "付属語ファイルの内容が正しくありません"
+      "疑似品詞番号が異常です(hinsi.data が正しくありません)"
+      "未定義の品詞が前端品詞として定義されています"
+      "付属語ファイルが読み込まれていません"
+      nil
+      nil
+      "辞書のエイントリが多過ぎます"
+      "変換しようとする文字列が長過ぎます"
+      "付属語解析領域が不足しています"
+      nil
+      "次候補領域が不足しています"
+      "候補が 1 つも作れませんでした"
       nil
       nil
       nil
       nil
-      "$B%a%b%j(B allocation $B$G<:GT$7$^$7$?(B"
+      "読みが長過ぎます"
+      "漢字が長過ぎます"
+      "指定された辞書は登録可能ではありません"
+      "読みの長さが 0 です"
+      "指定された辞書は逆引き可能ではありません"
+      "リードオンリーの辞書に登録/削除しようとしました"
+      "環境に存在しない辞書に登録しようとしました"
       nil
       nil
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$B2?$+$N%(%i!<$,5/$3$j$^$7$?(B"
-      "$B%P%0$,H/@8$7$F$$$kLOMM$G$9(B"
-      "$B%5!<%P$,;`$s$G$$$^$9(B"
-      "allocation $B$K<:GT$7$^$7$?(B"
-      "$B%5!<%P$H@\B3$G$-$^$;$s$G$7$?(B"
-      "$BDL?.%W%m%H%3%k$N%P!<%8%g%s$,9g$C$F$$$^$;$s(B"
-      "$B%/%i%$%"%s%H$N@8@.$7$?4D6-$G$O$"$j$^$;$s(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$B%G%#%l%/%H%j$r:n$k$3$H$,$G$-$^$;$s(B"
+      "リードオンリーの頻度を変更しようとしました"
+      "指定された単語が存在しません"
       nil
       nil
       nil
@@ -293,117 +263,117 @@
       nil
       nil
       nil
-      "$B%U%!%$%k$rFI$_9~$`$3$H$,$G$-$^$;$s(B"
-      "$B%U%!%$%k$r=q$-=P$9$3$H$,$G$-$^$;$s(B"
-      "$B%/%i%$%"%s%H$NFI$_9~$s$@%U%!%$%k$G$O$"$j$^$;$s(B"
-      "$B$3$l0J>e%U%!%$%k$rFI$_9~$`$3$H$,$G$-$^$;$s(B"
-      "$B%Q%9%o!<%I$,4V0c$C$F$$$^$9(B"
-      "$B%U%!%$%k$,FI$_9~$^$l$F$$$^$9(B"
-      "$B%U%!%$%k$,:o=|$G$-$^$;$s(B"
-      "$B%U%!%$%k$,:n@.=PMh$^$;$s(B"
-      "WNN $B$N%U%!%$%k$G$"$j$^$;$s(B"
-      "$B%U%!%$%k$N(B inode $B$H(B FILE_UNIQ $B$r0lCW$5$;$k;v$,$G$-$^$;$s(B"
-      "$BIJ;l%U%!%$%k$,Bg$-2a$.$^$9(B"
-      "$BIJ;l%U%!%$%k$,Bg$-2a$.$^$9(B"
-      "$BIJ;l%U%!%$%k$,B8:_$7$^$;$s(B"
-      "$BIJ;l%U%!%$%k$NFbMF$,4V0c$C$F$$$^$9(B"
+      "メモリ allocation で失敗しました"
       nil
-      "$BIJ;l%U%!%$%k$,FI$_9~$^$l$F$$$^$;$s(B"
-      "$BIJ;lL>$,4V0c$C$F$$$^$9(B"
-      "$BIJ;lHV9f$,4V0c$C$F$$$^$9(B"
       nil
-      "$B$=$NA`:n$O%5%]!<%H$5$l$F$$$^$;$s(B"
-      "$B%Q%9%o!<%I$NF~$C$F$$$k%U%!%$%k$,%*!<%W%s$G$-$^$;$s(B"
-      "uumrc $B%U%!%$%k$,B8:_$7$^$;$s(B"
-      "uumrc $B%U%!%$%k$N7A<0$,8m$C$F$$$^$9(B"
-      "$B$3$l0J>e4D6-$r:n$k$3$H$O$G$-$^$;$s(B"
-      "$B$3$N%/%i%$%"%s%H$,FI$_9~$s$@%U%!%$%k$G$"$j$^$;$s(B"
-      "$B<-=q$KIQEY%U%!%$%k$,$D$$$F$$$^$;$s(B"
-      "$B%Q%9%o!<%I$N%U%!%$%k$,:n@.=PMh$^$;$s(B"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "何かのエラーが起こりました"
+      "バグが発生している模様です"
+      "サーバが死んでいます"
+      "allocation に失敗しました"
+      "サーバと接続できませんでした"
+      "通信プロトコルのバージョンが合っていません"
+      "クライアントの生成した環境ではありません"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "ディレクトリを作ることができません"
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      "ファイルを読み込むことができません"
+      "ファイルを書き出すことができません"
+      "クライアントの読み込んだファイルではありません"
+      "これ以上ファイルを読み込むことができません"
+      "パスワードが間違っています"
+      "ファイルが読み込まれています"
+      "ファイルが削除できません"
+      "ファイルが作成出来ません"
+      "WNN のファイルでありません"
+      "ファイルの inode と FILE_UNIQ を一致させる事ができません"
+      "品詞ファイルが大き過ぎます"
+      "品詞ファイルが大き過ぎます"
+      "品詞ファイルが存在しません"
+      "品詞ファイルの内容が間違っています"
+      nil
+      "品詞ファイルが読み込まれていません"
+      "品詞名が間違っています"
+      "品詞番号が間違っています"
+      nil
+      "その操作はサポートされていません"
+      "パスワードの入っているファイルがオープンできません"
+      "uumrc ファイルが存在しません"
+      "uumrc ファイルの形式が誤っています"
+      "これ以上環境を作ることはできません"
+      "このクライアントが読み込んだファイルでありません"
+      "辞書に頻度ファイルがついていません"
+      "パスワードのファイルが作成出来ません"
       ])
     (Chinese-GB .
      [
       nil
-      "$AND<~2;4fTZ(B"
+      "文件不存在"
       nil
-      "$ADZ4f(Balloc$AJ'0\(B"
+      "内存alloc失败"
       nil
-      "$A2;JGWV5d(B"
-      "$A2;JGF56HND<~(B"
-      "$A2;JGND7(ND<~(B"
+      "不是字典"
+      "不是频度文件"
+      "不是文法文件"
       nil
-      "$AWV5d1m8qBz(B"
-      "$AF56HND<~#:2;JGV86(5DWV5d5DF56HND<~(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$AND<~2;D\4r?*(B"
-      "$A2;JGU}H75DF56HND<~(B"
-      "$A2;JGU}H75DND7(ND<~(B"
-      "$A8=JtSo5D8vJ}!"OrA?3$6H5H3,9}(B"
-      "$AUb8v:EBk5DWV5d!"C;SPJ9SC(B"
-      nil
-      nil
-      nil
-      "$AND7(ND<~5DDZH]2;U}H7(B"
-      "$APiDb4JPT:EBkRl3#(Bcixing.data$A2;U}H7(B"
-      "$AN46(Re5D4JPT!"6(ReAKG06K4JPT(B"
-      "$AND7(ND<~2;D\6AH!(B"
-      nil
-      nil
-      "$AWV5d5DOnJ}3,9}(B"
-      "$A1d;;:sWV7{4.5D3$6H3,9}(B"
-      "$A8=JtSo=bNvSr2;9;(B"
-      nil
-      "$A4N:n29Sr2;9;(B"
-      "$A:n29(B 1$A8vR2C;SP(B"
-      nil
-      nil
-      nil
-      nil
-      "$A6ARt3$6H3,9}(B"
-      "$A::WV3$6H3,9}(B"
-      "$AV86(5DWV5d!"2;D\5GB<(B"
-      "$A6ARt5D3$6HJG(B 0"
-      "$AV86(5DWV5d!"2;D\Df2i(B"
-      "$AV;6A5DWV5d!"5GB<(B/$AO{3}AK(B"
-      "$A;7>3VP2;4fTZ5DWV5d!"5GB<AK(B"
-      nil
-      nil
-      "$AV;6A5DF56H!"1d8|AK(B"
-      "$AV86(5D5%WV2;4fTZ(B"
+      "字典表格满"
+      "频度文件：不是指定的字典的频度文件"
       nil
       nil
       nil
       nil
       nil
+      "文件不能打开"
+      "不是正确的频度文件"
+      "不是正确的文法文件"
+      "附属语的个数、向量长度等超过"
+      "这个号码的字典、没有使用"
+      nil
+      nil
+      nil
+      "文法文件的内容不正确"
+      "虚拟词性号码异常cixing.data不正确"
+      "未定义的词性、定义了前端词性"
+      "文法文件不能读取"
+      nil
+      nil
+      "字典的项数超过"
+      "变换后字符串的长度超过"
+      "附属语解析域不够"
+      nil
+      "次侯补域不够"
+      "侯补 1个也没有"
       nil
       nil
       nil
       nil
-      "$ADZ4f(Balloc$AJ'0\(B"
+      "读音长度超过"
+      "汉字长度超过"
+      "指定的字典、不能登录"
+      "读音的长度是 0"
+      "指定的字典、不能逆查"
+      "只读的字典、登录/消除了"
+      "环境中不存在的字典、登录了"
       nil
       nil
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$ASP3v4m7"Iz(B"
-      "$A:COsSP#b#u#g7"Iz(B"
-      "server$AK@AK(B"
-      "alloc$AJ'0\AK(B"
-      "$A2;D\:M(Bserver$AA,=S(B"
-      "$AM(PE9f3L5D0f1>2;7{(B"
-      "$A2;JG#c#W#n#nSC;'Iz3I5D;7>3(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$AWSD?B<2;D\44=((B"
+      "只读的频度、变更了"
+      "指定的单字不存在"
       nil
       nil
       nil
@@ -413,117 +383,117 @@
       nil
       nil
       nil
-      "$AND<~2;D\6AH!(B"
-      "$AND<~2;D\P43v(B"
-      "$A2;JG#c#W#n#nSC;'?I6AH!5DND<~(B"
-      "$ARTIO5DND<~2;D\6AH!(B"
-      "password$A2;6T(B"
-      "$AND<~U}TZ6AH!(B"
-      "$AND<~2;D\O{3}(B"
-      "$AND<~C;SP44=(3v@4(B"
-      "$A2;JG#c#W#n#n5DND<~(B"
-      "$AND<~5D(BI-node$A:M(BFILE_UNIQ$A2;D\R;VB(B"
-      "$A4JPTND<~L+4s(B"
-      "$A4JPTND<~L+4s(B"
-      "$A4JPTND<~2;4fTZ(B"
-      "$A4JPTND<~5DDZH]2;6T(B"
+      "内存alloc失败"
       nil
-      "$A4JPTND<~2;D\6AH!(B"
-      "$A4JPTC{2;6T(B"
-      "$A4JPT:EBk2;6T(B"
       nil
-      "$AUb8v2YWw2;V'3V(B"
-      "password$A5DJdHkND<~2;D\4r?*(B"
-      "uumrc$AND<~2;4fTZ(B"
-      "uumrc$AND<~5DPNJ=4mNs(B"
-      "$ARTIO;7>32;D\44=((B"
-      "$AUb8v#c#W#n#nSC;'!"6AH!5DND<~C;SP(B"
-      "$AWV5d5DF56HND<~C;SP(B"
-      "password$A5DND<~C;SP44=(3v@4(B"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "有出错发生"
+      "好象有ｂｕｇ发生"
+      "server死了"
+      "alloc失败了"
+      "不能和server连接"
+      "通信规程的版本不符"
+      "不是ｃＷｎｎ用户生成的环境"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "子目录不能创建"
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      "文件不能读取"
+      "文件不能写出"
+      "不是ｃＷｎｎ用户可读取的文件"
+      "以上的文件不能读取"
+      "password不对"
+      "文件正在读取"
+      "文件不能消除"
+      "文件没有创建出来"
+      "不是ｃＷｎｎ的文件"
+      "文件的I-node和FILE_UNIQ不能一致"
+      "词性文件太大"
+      "词性文件太大"
+      "词性文件不存在"
+      "词性文件的内容不对"
+      nil
+      "词性文件不能读取"
+      "词性名不对"
+      "词性号码不对"
+      nil
+      "这个操作不支持"
+      "password的输入文件不能打开"
+      "uumrc文件不存在"
+      "uumrc文件的形式错误"
+      "以上环境不能创建"
+      "这个ｃＷｎｎ用户、读取的文件没有"
+      "字典的频度文件没有"
+      "password的文件没有创建出来"
       ])
     (Chinese-CNS .
      [
       nil
-      "$(GEFG5DbGtGc(B"
+      "文件不存在"
       nil
-      "$(GDyGt(Balloc$(GFBZu(B"
+      "內存alloc失敗"
       nil
-      "$(GDbQRGsL((B"
-      "$(GDbQRs"PyEFG5(B"
-      "$(GDbQREFNNEFG5(B"
+      "不是字典"
+      "不是頻度文件"
+      "不是文法文件"
       nil
-      "$(GGsL(OPV*iH(B"
-      "$(Gs"PyEFG5!3DbQRQ@LyN{GsL(N{s"PyEFG5(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$(GEFG5DbWdFTbd(B"
-      "$(GDbQRF_m}N{s"PyEFG5(B"
-      "$(GDbQRF_m}N{EFNNEFG5(B"
-      "$(GOazhk#N{T6m0!#GWbXO[Pya+b>g4(B"
-      "$(G]UT6f@n#N{GsL(!#JtH4KpFn(B"
-      nil
-      nil
-      nil
-      "$(GEFNNEFG5N{DyU)DbF_m}(B"
-      "$(Gapsib$MLf@n#\,Z&(Bcixing.data$(GDbF_m}(B"
-      "$(GF\LyexN{b$ML!#LyexD'P)j&b$ML(B"
-      "$(GEFNNEFG5DbWd{tL=(B"
-      nil
-      nil
-      "$(GGsL(N{bzm0b>g4(B"
-      "$(G|H_PG[Gs\JHkN{O[Pyb>g4(B"
-      "$(GOazhk#fXN5YQDbY\(B"
-      nil
-      "$(GH9OlfPYQDbY\(B"
-      "$(GOlfP(B 1$(GT6D>JtH4(B"
-      nil
-      nil
-      nil
-      nil
-      "$(G{tSvO[Pyb>g4(B"
-      "$(GiGGsO[Pyb>g4(B"
-      "$(GQ@LyN{GsL(!#DbWd`trg(B"
-      "$(G{tSvN{O[PyQR(B 0"
-      "$(GQ@LyN{GsL(!#DbWdXKQg(B"
-      "$(GF7{tN{GsL(!#`trg(B/$(GV<XfD'(B"
-      "$(Gt?h:DcDbGtGcN{GsL(!#`trgD'(B"
-      nil
-      nil
-      "$(GF7{tN{s"Py!#|HJUD'(B"
-      "$(GQ@LyN{^LGsDbGtGc(B"
+      "字典表格滿"
+      "頻度文件﹕不是指定的字典的頻度文件"
       nil
       nil
       nil
       nil
       nil
+      "文件不能打開"
+      "不是正確的頻度文件"
+      "不是正確的文法文件"
+      "附屬語的個數、向量長度等超過"
+      "這個號碼的字典、沒有使用"
+      nil
+      nil
+      nil
+      "文法文件的內容不正確"
+      "虛擬詞性號碼異常cixing.data不正確"
+      "未定義的詞性、定義了前端詞性"
+      "文法文件不能讀取"
+      nil
+      nil
+      "字典的項數超過"
+      "變換后字符串的長度超過"
+      "附屬語解析域不夠"
+      nil
+      "次侯補域不夠"
+      "侯補 1個也沒有"
       nil
       nil
       nil
       nil
-      "$(GDyGt(Balloc$(GFBZu(B"
+      "讀音長度超過"
+      "漢字長度超過"
+      "指定的字典、不能登錄"
+      "讀音的長度是 0"
+      "指定的字典、不能逆查"
+      "只讀的字典、登錄/消除了"
+      "環境中不存在的字典、登錄了"
       nil
       nil
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$(GH4Exrc`uFm(B"
-      "$(GGob/H4$\$o$a`uFm(B"
-      "server$(GH;D'(B"
-      "alloc$(GFBZuD'(B"
-      "$(GDbWdLO(Bserver$(G]YZY(B"
-      "$(G]WOj]=a#N{NjF[Db\J(B"
-      "$(GDbQR$]$q$h$hFnEBFmH)N{t?h:(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$(GDMFxrgDbWd^6Pz(B"
+      "只讀的頻度、變更了"
+      "指定的單字不存在"
       nil
       nil
       nil
@@ -533,117 +503,117 @@
       nil
       nil
       nil
-      "$(GEFG5DbWd{tL=(B"
-      "$(GEFG5DbWdlQEx(B"
-      "$(GDbQR$]$q$h$hFnEBF+{tL=N{EFG5(B"
-      "$(GEhD8N{EFG5DbWd{tL=(B"
-      "password$(GDbhW(B"
-      "$(GEFG5F_Gc{tL=(B"
-      "$(GEFG5DbWdV<Xf(B"
-      "$(GEFG5JtH4^6PzExKt(B"
-      "$(GDbQR$C$W$h$hN{EFG5(B"
-      "$(GEFG5N{(BI-node$(GLO(BFILE_UNIQ$(GDbWdD!S3(B"
-      "$(Gb$MLEFG5E4DK(B"
-      "$(Gb$MLEFG5E4DK(B"
-      "$(Gb$MLEFG5DbGtGc(B"
-      "$(Gb$MLEFG5N{DyU)DbhW(B"
+      "內存alloc失敗"
       nil
-      "$(Gb$MLEFG5DbWd{tL=(B"
-      "$(Gb$MLGXDbhW(B"
-      "$(Gb$MLf@n#DbhW(B"
       nil
-      "$(G]UT6pgI"DbEEQ=(B"
-      "password$(GN{rSD+EFG5DbWdFTbd(B"
-      "cwnnrc$(GEFG5DbGtGc(B"
-      "cwnnrc$(GEFG5N{J0H"rck((B"
-      "$(GEhD8t?h:DbWd^6Pz(B"
-      "$(G]UT6$C$W$h$hFnEB!#{tL=N{EFG5JtH4(B"
-      "$(GGsL(N{s"PyEFG5JtH4(B"
-      "password$(GN{EFG5JtH4^6PzExKt(B"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "有出錯發生"
+      "好象有ｂｕｇ發生"
+      "server死了"
+      "alloc失敗了"
+      "不能和server連接"
+      "通信規程的版本不符"
+      "不是ｃｗｎｎ用戶生成的環境"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "子目錄不能創建"
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      "文件不能讀取"
+      "文件不能寫出"
+      "不是ｃｗｎｎ用戶可讀取的文件"
+      "以上的文件不能讀取"
+      "password不對"
+      "文件正在讀取"
+      "文件不能消除"
+      "文件沒有創建出來"
+      "不是ＣＷｎｎ的文件"
+      "文件的I-node和FILE_UNIQ不能一致"
+      "詞性文件太大"
+      "詞性文件太大"
+      "詞性文件不存在"
+      "詞性文件的內容不對"
+      nil
+      "詞性文件不能讀取"
+      "詞性名不對"
+      "詞性號碼不對"
+      nil
+      "這個操作不支持"
+      "password的輸入文件不能打開"
+      "cwnnrc文件不存在"
+      "cwnnrc文件的形式錯誤"
+      "以上環境不能創建"
+      "這個ＣＷｎｎ用戶、讀取的文件沒有"
+      "字典的頻度文件沒有"
+      "password的文件沒有創建出來"
       ])
     (Korean .
      [
       nil
-      "$(CH-@O@L(B $(CA8@gGOAv(B $(C>J=@4O4Y(B"
+      "화일이 존재하지 않습니다"
       nil
-      "$(C8^8p8.(B alloc $(C?!<-(B $(C=GFPG_@>4O4Y(B"
+      "메모리 alloc 에서 실패했읍니다"
       nil
-      "$(C;g@|@L(B $(C>F4U4O4Y(B"
-      "$(C:s55(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      "$(C:N<S>n(B $(CH-@O@L(B $(C>F4U4O4Y(B"
+      "사전이 아닙니다"
+      "빈도 화일이 아닙니다"
+      "부속어 화일이 아닙니다"
       nil
-      "$(C;g@|(B $(CEW@L:m@L(B $(C2K(B $(CC!@>4O4Y(B"
-      "$(CAvA$5H(B $(C;g@|@G(B $(C:s55(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$(CH-@O@;(B $(C?-(B $(C<v(B $(C>x@>4O4Y(B"
-      "$(C8B4B(B $(C:s55(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      "$(C8B4B(B $(C:N<S>n(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      "$(C:N<S>n@G(B $(C09<v0!(B $(C3J9+(B $(C890E3*(B $(C:$EM@G(B $(C1f@L0!(B $(C3J9+(B $(C1i4O4Y(B"
-      "$(C1W(B $(C9xH#@G(B $(C;g@|@:(B $(C;g?k5G0m(B $(C@VAv(B $(C>J=@4O4Y(B"
-      nil
-      nil
-      nil
-      "$(C:N<S>n(B $(CH-@O@G(B $(C3;?k@L(B $(C8BAv(B $(C>J=@4O4Y(B"
-      "$(C0!;s(B $(CG0;g@G(B $(C9xH#0!(B $(CF2834O4Y(B. hinsi.data $(C0!(B $(C8BAv(B $(C>J=@4O4Y(B"
-      "$(C9LA$@G@G(B $(CG0;g0!(B $(C@|4\(B $(CG0;g7N(B $(CA$@G5G>n(B $(C@V=@4O4Y(B"
-      "$(C:N<S>n(B $(CH-@O@L(B $(C@PGtA.(B $(C@VAv(B $(C>J=@4O4Y(B"
-      nil
-      nil
-      "$(C;g@|@G(B $(C?#F.8.0!(B $(C3J9+(B $(C89=@4O4Y(B"
-      "$(C:/H/GO7A4B(B $(C9.@Z?-@L(B $(C3J9+(B $(C1i4O4Y(B"
-      "$(C:N<S>n(B $(CGX<.(B $(C?5?*@L(B $(C:NA7GU4O4Y(B"
-      nil
-      "$(C4Y@=(B $(CHD:8(B $(C?5?*@L(B $(C:NA7GU4O4Y(B"
-      "$(CHD:80!(B $(C>x@>4O4Y(B"
-      nil
-      nil
-      nil
-      nil
-      "$(CGQ1[@L(B $(C3J9+(B $(C1i4O4Y(B"
-      "$(CGQ@Z0!(B $(C3J9+(B $(C1i4O4Y(B"
-      "$(CAvA$5H(B $(C;g@|@:(B $(C5n7O(B $(C:R0!4I@T4O4Y(B"
-      "$(CGQ1[@G(B $(C1f@L0!(B 0 $(C@T4O4Y(B"
-      "$(CAvA$5H(B $(C;g@|@:(B $(C?*B|A6(B $(C:R0!4I@T4O4Y(B"
-      "$(C@P1b@|?k(B $(C;g@|?!(B $(C5n7O(B/$(C<R0E(B $(CGO7A0m(B $(CG_@>4O4Y(B"
-      "$(CA8@gGOAv(B $(C>J4B(B $(C;g@|?!(B $(C5n7O(B $(CGO7A0m(B $(CG_@>4O4Y(B"
-      nil
-      nil
-      "$(C@P1b@|?k(B $(C:s558&(B $(C0f=E(B $(CGO7A0m(B $(CG_@>4O4Y(B"
-      "$(CAvA$5H(B $(C4\>n4B(B $(CA8@gGOAv(B $(C>J=@4O4Y(B"
+      "사전 테이블이 꽉 찼읍니다"
+      "지정된 사전의 빈도 화일이 아닙니다"
       nil
       nil
       nil
       nil
       nil
+      "화일을 열 수 없읍니다"
+      "맞는 빈도 화일이 아닙니다"
+      "맞는 부속어 화일이 아닙니다"
+      "부속어의 갯수가 너무 많거나 벡터의 길이가 너무 깁니다"
+      "그 번호의 사전은 사용되고 있지 않습니다"
+      nil
+      nil
+      nil
+      "부속어 화일의 내용이 맞지 않습니다"
+      "가상 품사의 번호가 틀립니다. hinsi.data 가 맞지 않습니다"
+      "미정의의 품사가 전단 품사로 정의되어 있습니다"
+      "부속어 화일이 읽혀져 있지 않습니다"
+      nil
+      nil
+      "사전의 엔트리가 너무 많습니다"
+      "변환하려는 문자열이 너무 깁니다"
+      "부속어 해석 영역이 부족합니다"
+      nil
+      "다음 후보 영역이 부족합니다"
+      "후보가 없읍니다"
       nil
       nil
       nil
       nil
-      "$(C8^8p8.(B alloc $(C?!(B $(C=GFPG_@>4O4Y(B"
+      "한글이 너무 깁니다"
+      "한자가 너무 깁니다"
+      "지정된 사전은 등록 불가능입니다"
+      "한글의 길이가 0 입니다"
+      "지정된 사전은 역참조 불가능입니다"
+      "읽기전용 사전에 등록/소거 하려고 했읍니다"
+      "존재하지 않는 사전에 등록 하려고 했읍니다"
       nil
       nil
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$(C?!7/0!(B $(C9_;}G_@>4O4Y(B"
-      "$(C9v1W(B(Bug)$(C0!(B $(C9_;}G_@>4O4Y(B"
-      "$(C<-9v(B(Server)$(C0!(B $(CAW>n(B $(C@V@>4O4Y(B"
-      "alloc$(C?!(B $(C=GFPG_@>4O4Y(B"
-      "$(C<-9v(B(Server) $(C?M(B $(CA"CKGR(B $(C<v(B $(C>x@>4O4Y(B"
-      "$(CEk=E(B $(CGA7NEdD]@G(B $(C9vA/@L(B $(C8BAv(B $(C>J=@4O4Y(B"
-      "$(CE,6s@L>HF.0!(B $(C;}<:GQ(B $(CH/0f@L(B $(C>F4U4O4Y(B"
-      nil
-      nil
-      nil
-      nil
-      nil
-      "$(C5p7:Ed8.8&(B $(C885i(B $(C<v(B $(C>x@>4O4Y(B"
+      "읽기전용 빈도를 경신 하려고 했읍니다"
+      "지정된 단어는 존재하지 않습니다"
       nil
       nil
       nil
@@ -653,33 +623,63 @@
       nil
       nil
       nil
-      "$(CH-@O(B $(C@P1b?!(B $(C=GFPG_@>4O4Y(B"
-      "$(CH-@O(B $(C>21b?!(B $(C=GFPG_@>4O4Y(B"
-      "$(CE,6s@L>HF.0!(B $(C@P>n(B $(C5e80(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      "$(C4u(B $(C@L;s@G(B $(CH-@O@;(B $(C@P>n(B $(C5e81(B $(C<v(B $(C>x@>4O4Y(B"
-      "$(CFP=:?v5e0!(B $(CF2834O4Y(B"
-      "$(CH-@O@L(B $(C@PGtA.(B $(C@V@>4O4Y(B"
-      "$(CH-@O@;(B $(C<R0EGR(B $(C<v(B $(C>x@>4O4Y(B"
-      "$(CH-@O@;(B $(C@[<:GR(B $(C<v(B $(C>x@>4O4Y(B"
-      "kWnn$(C@G(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      "$(CH-@O@G(B I-node $(C?M(B FILE_UNIQ $(C8&(B $(C@OD!=CE3(B $(C<v(B $(C>x@>4O4Y(B"
-      "$(CG0;g(B $(CH-@O@G(B $(CE)1b0!(B $(C3J9+(B $(CE.4O4Y(B"
-      "$(CG0;g(B $(CH-@O@G(B $(CE)1b0!(B $(C3J9+(B $(CE.4O4Y(B"
-      "$(CG0;g(B $(CH-@O@L(B $(CA8@gGOAv(B $(C>J=@4O4Y(B"
-      "$(CG0;g(B $(CH-@O@G(B $(C3;?k@L(B $(CF2834O4Y(B"
+      "메모리 alloc 에 실패했읍니다"
       nil
-      "$(CG0;g(B $(CH-@O@L(B $(C@PGtA.(B $(C@VAv(B $(C>J=@4O4Y(B"
-      "$(CG0;g(B $(C@L8'@L(B $(CF2834O4Y(B"
-      "$(CG0;g(B $(C9xH#0!(B $(CF2834O4Y(B"
       nil
-      "$(C1W(B $(CA6@[@:(B $(CAv?x5GAv(B $(C>J=@4O4Y(B"
-      "$(CFP=:?v5e0!(B $(C5i>n@V4B(B $(CH-@O@;(B $(C?-(B $(C<v(B $(C>x@>4O4Y(B"
-      "uumrc $(C@L(B $(CA8@gGOAv(B $(C>J=@4O4Y(B"
-      "uumrc $(C@G(B $(CG|=D@L(B $(CF2834O4Y(B"
-      "$(C@L(B $(C@L;s(B $(CH/0f@;(B $(C@[<:GR(B $(C<v(B $(C>x@>4O4Y(B"
-      "$(CE)6s@L>HF.0!(B $(C@P>n(B $(C5e80(B $(CH-@O@L(B $(C>F4U4O4Y(B"
-      "$(C;g@|?!(B $(C:s55(B $(CH-@O@L(B $(CA8@gGOAv(B $(C>J=@4O4Y(B"
-      "$(CFP=:?v5e(B $(CH-@O@;(B $(C@[<:GR(B $(C<v(B $(C>x@>4O4Y(B"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "에러가 발생했읍니다"
+      "버그(Bug)가 발생했읍니다"
+      "서버(Server)가 죽어 있읍니다"
+      "alloc에 실패했읍니다"
+      "서버(Server) 와 접촉할 수 없읍니다"
+      "통신 프로토콜의 버젼이 맞지 않습니다"
+      "클라이안트가 생성한 환경이 아닙니다"
+      nil
+      nil
+      nil
+      nil
+      nil
+      "디렉토리를 만들 수 없읍니다"
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      nil
+      "화일 읽기에 실패했읍니다"
+      "화일 쓰기에 실패했읍니다"
+      "클라이안트가 읽어 드린 화일이 아닙니다"
+      "더 이상의 화일을 읽어 드릴 수 없읍니다"
+      "패스워드가 틀립니다"
+      "화일이 읽혀져 있읍니다"
+      "화일을 소거할 수 없읍니다"
+      "화일을 작성할 수 없읍니다"
+      "kWnn의 화일이 아닙니다"
+      "화일의 I-node 와 FILE_UNIQ 를 일치시킬 수 없읍니다"
+      "품사 화일의 크기가 너무 큽니다"
+      "품사 화일의 크기가 너무 큽니다"
+      "품사 화일이 존재하지 않습니다"
+      "품사 화일의 내용이 틀립니다"
+      nil
+      "품사 화일이 읽혀져 있지 않습니다"
+      "품사 이름이 틀립니다"
+      "품사 번호가 틀립니다"
+      nil
+      "그 조작은 지원되지 않습니다"
+      "패스워드가 들어있는 화일을 열 수 없읍니다"
+      "uumrc 이 존재하지 않습니다"
+      "uumrc 의 형식이 틀립니다"
+      "이 이상 환경을 작성할 수 없읍니다"
+      "크라이안트가 읽어 드린 화일이 아닙니다"
+      "사전에 빈도 화일이 존재하지 않습니다"
+      "패스워드 화일을 작성할 수 없읍니다"
       ]))
   "Array of WNN error messages.  Indexed by error code.")
 
